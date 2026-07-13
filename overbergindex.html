@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Adam Overberg — civic tools &amp; web apps</title>
+<meta name="description" content="Adam Overberg builds civic tools and web apps around Chicago and open government data — including the Chicago District Explorer." />
+<link rel="canonical" href="https://overberg.co/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Adam Overberg — civic tools & web apps" />
+<meta property="og:description" content="I build civic tools and web apps around Chicago and open government data, including the Chicago District Explorer." />
+<meta property="og:url" content="https://overberg.co/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2341B6E6'/%3E%3Cpolygon points='32,6 36,25.07 54.52,19 40,32 54.52,45 36,38.93 32,58 28,38.93 9.48,45 24,32 9.48,19 28,25.07' fill='%23C8102E'/%3E%3C/svg%3E" />
+<style>
+  :root {
+    --bg: #f6f8fa;
+    --panel: #ffffff;
+    --ink: #14181c;
+    --slate: #55626c;
+    --line: #e2e8ee;
+    --accent: #0b5394;
+    --accent-soft: #41b6e6;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117; --panel: #161b22; --ink: #e6edf3; --slate: #9aa7b2;
+      --line: #263140; --accent: #58a6ff; --accent-soft: #41b6e6;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6; -webkit-font-smoothing: antialiased;
+    display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;
+  }
+  main { width: 100%; max-width: 620px; }
+  .star { width: 46px; height: 46px; margin-bottom: 22px; }
+  h1 { font-size: clamp(30px, 6vw, 40px); margin: 0 0 6px; letter-spacing: -0.5px; }
+  .tagline { font-size: clamp(17px, 3.5vw, 19px); color: var(--slate); margin: 0 0 34px; }
+  .eyebrow { text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; font-weight: 700;
+    color: var(--slate); margin: 0 0 12px; }
+  .card {
+    display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
+    padding: 22px 24px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s;
+  }
+  .card:hover, .card:focus-visible { border-color: var(--accent-soft); transform: translateY(-2px); outline: none; }
+  .card + .card { margin-top: 14px; }
+  .card h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
+  .card p { margin: 0; color: var(--slate); font-size: 15px; }
+  .card .arrow { color: var(--accent-soft); }
+  .links { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; }
+  .links a { color: var(--accent); text-decoration: none; font-weight: 600; }
+  .links a:hover { text-decoration: underline; }
+  a:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 3px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<main>
+  <svg class="star" viewBox="0 0 64 64" aria-hidden="true">
+    <circle cx="32" cy="32" r="30" fill="#41B6E6"/>
+    <polygon points="32,6 36,25.07 54.52,19 40,32 54.52,45 36,38.93 32,58 28,38.93 9.48,45 24,32 9.48,19 28,25.07" fill="#C8102E"/>
+  </svg>
+  <h1>Adam Overberg</h1>
+  <p class="tagline">I build civic tools and web apps, mostly around Chicago and open government data.</p>
+
+  <p class="eyebrow">Currently building</p>
+  <a class="card" href="https://chidistricts.com/">
+    <h2>Chicago District Explorer <span class="arrow">&rarr;</span></h2>
+    <p>Find every civic district that covers any Chicago address — your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — and who represents you there.</p>
+  </a>
+  <a class="card" href="https://nyc.chidistricts.com/">
+    <h2>District Explorer: New York City <span class="arrow">&rarr;</span></h2>
+    <p>The same civic-district lookup, ported to NYC.</p>
+  </a>
+
+  <nav class="links" aria-label="Elsewhere">
+    <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
+    <a href="https://github.com/ThursdaysFamous">GitHub</a>
+  </nav>
+</main>
+</body>
+</html>
