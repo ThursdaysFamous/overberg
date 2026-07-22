@@ -35,7 +35,7 @@
     line-height: 1.6; -webkit-font-smoothing: antialiased;
     display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;
   }
-  main { width: 100%; max-width: 620px; }
+  main { width: 100%; max-width: 720px; }
   .star { width: 46px; height: 46px; margin-bottom: 22px; }
   h1 { font-size: clamp(30px, 6vw, 40px); margin: 0 0 6px; letter-spacing: -0.5px; }
   .tagline { font-size: clamp(17px, 3.5vw, 19px); color: var(--slate); margin: 0 0 34px; }
@@ -50,6 +50,10 @@
   .card h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
   .card p { margin: 0; color: var(--slate); font-size: 15px; }
   .card .arrow { color: var(--accent-soft); }
+  .embed { margin-top: 14px; border: 1px solid var(--line); border-radius: 12px;
+    overflow: hidden; line-height: 0; background: var(--panel); }
+  .embed iframe { display: block; width: 100%; }
+  .embed-note { margin: 10px 2px 0; font-size: 13px; color: var(--slate); }
   .links { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; }
   .links a { color: var(--accent); text-decoration: none; font-weight: 600; }
   .links a:hover { text-decoration: underline; }
@@ -74,6 +78,16 @@
     <h2>District Explorer: New York City <span class="arrow">&rarr;</span></h2>
     <p>The same civic-district lookup, ported to NYC.</p>
   </a>
+  <a class="card" href="https://sf.chidistricts.com/">
+    <h2>District Explorer: San Francisco <span class="arrow">&rarr;</span></h2>
+    <p>The same civic-district lookup, ported to San Francisco.</p>
+  </a>
+
+  <p class="eyebrow" style="margin-top: 34px;">Try it live</p>
+  <div class="embed">
+    <iframe src="https://chidistricts.com/#point=41.96177,-87.70884&layers=police-district,ward,congress,il-senate,il-house" width="100%" height="600" style="border:0;max-width:100%" loading="lazy" title="Chicago District Explorer" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </div>
+  <p class="embed-note">Live embed of the Chicago District Explorer — click anywhere in the city, or search an address, to see who represents that point.</p>
 
   <nav class="links" aria-label="Elsewhere">
     <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
