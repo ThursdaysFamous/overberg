@@ -181,11 +181,8 @@
     padding: clamp(48px, 7vw, 70px) 0 clamp(56px, 8vw, 84px);
   }
   .grayscale { filter: grayscale(1) contrast(1.08); }
-  .photo-slot {
-    width: 100%; aspect-ratio: 4 / 3; border: 2px dashed var(--color-divider);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent);
-  }
+  .about figure { margin: 0; }
+  .about-photo { display: block; width: 100%; height: auto; }
   .about h2 { font-size: 32px; line-height: 42px; letter-spacing: -0.015em; margin: 0; }
   .about .bio { font-size: 15.5px; line-height: 28px; margin: 21px 0 0; max-width: 48ch; }
   .roadmap { display: flex; align-items: center; gap: 12px; font-size: 15.5px; line-height: 28px; margin: 28px 0 0; font-weight: 600; }
@@ -280,8 +277,7 @@
 
   <section class="about" id="about">
     <figure class="grayscale">
-      <!-- Swap in a real photo: <img src="photo.jpg" alt="Adam Overberg" style="width:100%;aspect-ratio:4/3;object-fit:cover"> -->
-      <div class="photo-slot">Photo — prints in black &amp; white</div>
+      <img class="about-photo" src="images/about.jpg" width="1000" height="1400" alt="Adam Overberg outdoors with a young child" loading="lazy" />
     </figure>
     <div>
       <span class="kicker">About</span>
