@@ -11,88 +11,293 @@
 <meta property="og:title" content="Adam Overberg — civic tools & web apps" />
 <meta property="og:description" content="I build civic tools and web apps around Chicago and open government data, including the Chicago District Explorer." />
 <meta property="og:url" content="https://overberg.co/" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%2341B6E6'/%3E%3Cpolygon points='32,6 36,25.07 54.52,19 40,32 54.52,45 36,38.93 32,58 28,38.93 9.48,45 24,32 9.48,19 28,25.07' fill='%23C8102E'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8' fill='%23ec3013'/%3E%3C/svg%3E" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&display=swap" rel="stylesheet" />
+<script>
+  // Set theme before first paint: stored choice wins, else follow the OS.
+  (function () {
+    try {
+      var s = localStorage.getItem('overberg-theme');
+      var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  })();
+</script>
 <style>
+  /* Tokens — Modernist: Archivo, zero radius, 2px rules, one red. */
   :root {
-    --bg: #f6f8fa;
-    --panel: #ffffff;
-    --ink: #14181c;
-    --slate: #55626c;
-    --line: #e2e8ee;
-    --accent: #0b5394;
-    --accent-soft: #41b6e6;
+    --color-bg: #f3f2f2;
+    --color-text: #201e1d;
+    --color-accent: #ec3013;
+    --color-accent-600: #dd2b0f;
+    --color-accent-700: #ae1800;
+    --color-divider: color-mix(in srgb, #201e1d 40%, transparent);
+    --color-panel: #f8f4f4;
+    --paper: #f3f2f2;
+    --font-heading: "Archivo", system-ui, sans-serif;
+    --font-heading-weight: 800;
+    --font-body: "Archivo", system-ui, sans-serif;
+    --edge: clamp(20px, 5vw, 72px);
+    color-scheme: light;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #0d1117; --panel: #161b22; --ink: #e6edf3; --slate: #9aa7b2;
-      --line: #263140; --accent: #58a6ff; --accent-soft: #41b6e6;
-    }
+  :root[data-theme="dark"] {
+    --color-bg: #1b1918;
+    --color-text: #f3f2f2;
+    --color-accent-600: #ff563c;
+    --color-accent-700: #ff9783;
+    --color-divider: color-mix(in srgb, #f3f2f2 45%, transparent);
+    --color-panel: #242221;
+    color-scheme: dark;
   }
   * { box-sizing: border-box; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6; -webkit-font-smoothing: antialiased;
-    display: flex; min-height: 100vh; align-items: center; justify-content: center; padding: 24px;
+    margin: 0; background: var(--color-bg); color: var(--color-text);
+    font-family: var(--font-body); font-size: 15px; line-height: 1.55;
+    -webkit-font-smoothing: antialiased; text-wrap: pretty;
+    transition: background .2s, color .2s;
   }
-  main { width: 100%; max-width: 720px; }
-  .star { width: 46px; height: 46px; margin-bottom: 22px; }
-  h1 { font-size: clamp(30px, 6vw, 40px); margin: 0 0 6px; letter-spacing: -0.5px; }
-  .tagline { font-size: clamp(17px, 3.5vw, 19px); color: var(--slate); margin: 0 0 34px; }
-  .eyebrow { text-transform: uppercase; letter-spacing: 1.5px; font-size: 12px; font-weight: 700;
-    color: var(--slate); margin: 0 0 12px; }
-  .card {
-    display: block; background: var(--panel); border: 1px solid var(--line); border-radius: 12px;
-    padding: 22px 24px; text-decoration: none; color: inherit; transition: border-color .15s, transform .15s;
+  h1, h2, h3 { font-family: var(--font-heading); font-weight: var(--font-heading-weight); }
+  a { color: var(--color-accent-700); text-underline-offset: 3px; }
+  a:hover { color: var(--color-accent); }
+  :focus { outline: none; }
+  :focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 var(--edge); }
+  .rule2 { height: 2px; border: 0; margin: 0; background: var(--color-divider); }
+  .kicker {
+    display: block; font-size: 13px; line-height: 14px; letter-spacing: 0.08em;
+    text-transform: uppercase; color: var(--color-accent-700); margin: 0 0 14px;
   }
-  .card:hover, .card:focus-visible { border-color: var(--accent-soft); transform: translateY(-2px); outline: none; }
-  .card + .card { margin-top: 14px; }
-  .card h2 { margin: 0 0 6px; font-size: 20px; color: var(--accent); }
-  .card p { margin: 0; color: var(--slate); font-size: 15px; }
-  .card .arrow { color: var(--accent-soft); }
-  .embed { margin-top: 14px; border: 1px solid var(--line); border-radius: 12px;
-    overflow: hidden; line-height: 0; background: var(--panel); }
-  .embed iframe { display: block; width: 100%; }
-  .embed-note { margin: 10px 2px 0; font-size: 13px; color: var(--slate); }
-  .links { margin-top: 34px; display: flex; flex-wrap: wrap; gap: 10px 22px; font-size: 15px; }
-  .links a { color: var(--accent); text-decoration: none; font-weight: 600; }
-  .links a:hover { text-decoration: underline; }
-  a:focus-visible { outline: 3px solid var(--accent-soft); outline-offset: 3px; border-radius: 3px; }
+  .muted70 { color: color-mix(in srgb, var(--color-text) 70%, transparent); }
+  .muted78 { color: color-mix(in srgb, var(--color-text) 78%, transparent); }
+
+  /* — buttons (lifted from the Modernist component layer) — */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    cursor: pointer; text-decoration: none;
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: 14px; line-height: 1.2; color: var(--color-text);
+    background: transparent; border: 1px solid transparent;
+    padding: 8px 14.4px; border-radius: 0;
+  }
+  .btn svg { display: block; }
+  .btn-primary { background: var(--color-accent); color: var(--paper); }
+  .btn-primary:hover { background: var(--color-accent-600); color: var(--paper); }
+  .btn-primary:active { background: var(--color-accent-700); }
+  .btn-ghost { color: var(--color-accent); padding-inline: 4px; }
+  .btn-ghost:hover { background: color-mix(in srgb, var(--color-accent) 10%, transparent); color: var(--color-accent); }
+  .btn-ghost:active { background: color-mix(in srgb, var(--color-accent) 18%, transparent); }
+  .btn-icon { width: 36px; height: 36px; padding: 0; }
+
+  /* — nav — */
+  .nav {
+    display: flex; align-items: center; gap: 16px;
+    padding: 12px max(var(--edge), calc((100% - 1200px) / 2 + var(--edge)));
+    border-bottom: 2px solid var(--color-divider);
+  }
+  .nav-brand {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: 18px; margin-right: auto;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .nav > a:not(.btn) { color: inherit; text-decoration: none; font-size: 14px; white-space: nowrap; }
+  .nav > a:not(.btn):hover { color: var(--color-accent); }
+  @media (max-width: 640px) { .nav > a:not(.btn) { display: none; } }
+
+  /* theme toggle: show the icon for the mode you'd switch TO */
+  #theme-toggle .sun { display: none; }
+  :root[data-theme="dark"] #theme-toggle .sun { display: block; }
+  :root[data-theme="dark"] #theme-toggle .moon { display: none; }
+
+  /* — hero — */
+  .hero { padding: clamp(56px, 11vw, 112px) 0 clamp(48px, 8vw, 84px); }
+  .display {
+    font-size: clamp(42px, 6.2vw, 84px); line-height: 1.06; letter-spacing: -0.02em;
+    margin: 0 0 0 -0.058em;
+  }
+  .display .line { display: block; }
+  .hero .sub { font-size: 17px; line-height: 28px; max-width: 58ch; margin: 28px 0 0; }
+  .row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+
+  /* — stats — */
+  .stats { padding: clamp(48px, 7vw, 70px) 0; }
+  .stats .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: clamp(28px, 5vw, 42px) 28px; }
+  .stat-num {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: clamp(34px, 3.4vw, 48px); line-height: 1.15; color: var(--color-accent);
+    margin: 0 0 0 -0.045em;
+  }
+  .stat-label {
+    font-size: 13px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-text) 70%, transparent); margin: 14px 0 0;
+  }
+
+  /* — flagship — */
+  .flagship { padding: clamp(56px, 8vw, 84px) 0 clamp(42px, 7vw, 70px); }
+  .flagship .cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); gap: 28px clamp(24px, 4vw, 72px); align-items: baseline; }
+  .flagship h2 { font-size: clamp(28px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.015em; margin: 0; }
+  .flagship p { font-size: 15.5px; line-height: 28px; margin: 0; max-width: 52ch; }
+
+  /* — embed — */
+  .live { padding: 0 0 clamp(42px, 6vw, 56px); }
+  .embed { border: 2px solid var(--color-divider); line-height: 0; background: var(--color-panel); }
+  .embed iframe { border: 0; display: block; width: 100%; height: 700px; }
+  @media (max-width: 640px) { .embed iframe { height: 480px; } }
+  .embed-note { margin: 14px 0 0; font-size: 13px; line-height: 21px; }
+
+  /* — ports — */
+  .ports { padding: clamp(42px, 6vw, 56px) 0 clamp(48px, 7vw, 70px); }
+  .ports .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 28px clamp(24px, 4vw, 72px); }
+  .port { text-decoration: none; color: inherit; border-top: 2px solid var(--color-divider); padding-top: 21px; display: block; }
+  .port:hover { color: var(--color-accent-700); }
+  .port h3 { font-size: 24px; line-height: 28px; letter-spacing: -0.01em; margin: 0 0 10px; }
+  .port p { font-size: 15.5px; line-height: 28px; margin: 0; }
+
+  /* — about — */
+  .about {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: 28px clamp(24px, 5vw, 96px); align-items: center;
+    padding: clamp(48px, 7vw, 70px) 0 clamp(56px, 8vw, 84px);
+  }
+  .grayscale { filter: grayscale(1) contrast(1.08); }
+  .photo-slot {
+    width: 100%; aspect-ratio: 4 / 3; border: 2px dashed var(--color-divider);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; color: color-mix(in srgb, var(--color-text) 55%, transparent);
+  }
+  .about h2 { font-size: 32px; line-height: 42px; letter-spacing: -0.015em; margin: 0; }
+  .about .bio { font-size: 15.5px; line-height: 28px; margin: 21px 0 0; max-width: 48ch; }
+  .roadmap { display: flex; align-items: center; gap: 12px; font-size: 15.5px; line-height: 28px; margin: 28px 0 0; font-weight: 600; }
+  .roadmap .sq { width: 10px; height: 10px; background: var(--color-accent); flex: none; }
+
+  /* — poster close — */
+  .close { background: var(--color-accent); color: var(--paper); }
+  .close .wrap { padding-top: clamp(56px, 9vw, 84px); padding-bottom: clamp(56px, 9vw, 84px); }
+  .close h3 { font-size: clamp(34px, 4.2vw, 56px); line-height: 1.06; letter-spacing: -0.015em; margin: 0 0 0 -0.058em; }
+  .close h3 .line { display: block; }
+  .close .btn-ghost { color: var(--paper); border-color: var(--paper); }
+  .close .btn-ghost:hover { background: color-mix(in srgb, var(--paper) 12%, transparent); color: var(--paper); }
+
+  footer {
+    padding: clamp(42px, 6vw, 56px) 0; font-size: 13px; line-height: 28px;
+    color: color-mix(in srgb, var(--color-text) 70%, transparent);
+    display: flex; flex-wrap: wrap; gap: 10px 22px;
+  }
+  footer a { font-weight: 600; text-decoration: none; }
 </style>
 </head>
 <body>
-<main>
-  <svg class="star" viewBox="0 0 64 64" aria-hidden="true">
-    <circle cx="32" cy="32" r="30" fill="#41B6E6"/>
-    <polygon points="32,6 36,25.07 54.52,19 40,32 54.52,45 36,38.93 32,58 28,38.93 9.48,45 24,32 9.48,19 28,25.07" fill="#C8102E"/>
-  </svg>
-  <h1>Adam Overberg</h1>
-  <p class="tagline">I build civic tools and web apps, mostly around Chicago and open government data.</p>
+<nav class="nav">
+  <span class="nav-brand">
+    <svg viewBox="0 0 64 64" aria-hidden="true" style="width:20px;height:20px;flex:none"><polygon points="32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8" fill="var(--color-accent)"/></svg>
+    Adam Overberg
+  </span>
+  <a href="#work">Work</a>
+  <a href="#live">Live map</a>
+  <a href="#about">About</a>
+  <button type="button" id="theme-toggle" class="btn btn-ghost btn-icon" aria-label="Switch light / dark theme" title="Switch light / dark">
+    <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+  </button>
+  <a class="btn btn-primary" href="https://chidistricts.com/">Open the Explorer</a>
+</nav>
+<div class="wrap">
 
-  <p class="eyebrow">Currently building</p>
-  <a class="card" href="https://chidistricts.com/">
-    <h2>Chicago District Explorer <span class="arrow">&rarr;</span></h2>
-    <p>Find every civic district that covers any Chicago address — your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — and who represents you there.</p>
-  </a>
-  <a class="card" href="https://nyc.chidistricts.com/">
-    <h2>District Explorer: New York City <span class="arrow">&rarr;</span></h2>
-    <p>The same civic-district lookup, ported to NYC.</p>
-  </a>
-  <a class="card" href="https://sf.chidistricts.com/">
-    <h2>District Explorer: San Francisco <span class="arrow">&rarr;</span></h2>
-    <p>The same civic-district lookup, ported to San Francisco.</p>
-  </a>
+  <section class="hero">
+    <h1 class="display"><span class="line">Civic tools for people</span> <span class="line">who live somewhere.</span></h1>
+    <p class="sub">I'm Adam Overberg. I build fast, free web tools on open government data — starting with the District Explorer: click any point on the map and see every civic district that contains it, and exactly who represents you there. No login, no tracking, no fuss.</p>
+    <div class="row">
+      <a class="btn btn-primary" href="https://chidistricts.com/">Look yourself up &rarr;</a>
+      <a class="btn btn-ghost" href="#work">See the work</a>
+    </div>
+  </section>
 
-  <p class="eyebrow" style="margin-top: 34px;">Try it live</p>
-  <div class="embed">
-    <iframe src="https://chidistricts.com/#point=41.96177,-87.70884&layers=police-district,ward,congress,il-senate,il-house" width="100%" height="600" style="border:0;max-width:100%" loading="lazy" title="Chicago District Explorer" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <hr class="rule2" />
+
+  <section class="stats" aria-label="By the numbers">
+    <div class="grid">
+      <div><p class="stat-num">3</p><p class="stat-label">Cities live — Chicago, NYC, SF</p></div>
+      <div><p class="stat-num">8+</p><p class="stat-label">District layers per address, ward to school board</p></div>
+      <div><p class="stat-num">1</p><p class="stat-label">Goal: every address in Illinois</p></div>
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="flagship" id="work">
+    <span class="kicker">Currently building</span>
+    <div class="cols">
+      <h2>Chicago District Explorer</h2>
+      <p class="muted78">One click, every district: your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — with the name of who represents you in each. <a href="https://chidistricts.com/" style="font-weight:600">chidistricts.com &rarr;</a></p>
+    </div>
+  </section>
+
+  <section class="live" id="live">
+    <div class="embed">
+      <iframe src="https://chidistricts.com/#point=41.96177,-87.70884&amp;layers=police-district,ward,congress,il-senate,il-house" loading="lazy" title="Chicago District Explorer" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <p class="embed-note muted70">This is the real thing — click anywhere in the city, or search an address, to see who represents that point.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="ports" aria-label="Ports">
+    <span class="kicker">Also live</span>
+    <div class="grid">
+      <a class="port" href="https://nyc.chidistricts.com/">
+        <h3>District Explorer: New York City &rarr;</h3>
+        <p class="muted78">The same lookup, rebuilt for the five boroughs.</p>
+      </a>
+      <a class="port" href="https://sf.chidistricts.com/">
+        <h3>District Explorer: San Francisco &rarr;</h3>
+        <p class="muted78">The same lookup, for the seven-by-seven.</p>
+      </a>
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="about" id="about">
+    <figure class="grayscale">
+      <!-- Swap in a real photo: <img src="photo.jpg" alt="Adam Overberg" style="width:100%;aspect-ratio:4/3;object-fit:cover"> -->
+      <div class="photo-slot">Photo — prints in black &amp; white</div>
+    </figure>
+    <div>
+      <span class="kicker">About</span>
+      <h2>Open data, no middleman.</h2>
+      <p class="bio muted78">Government publishes the boundaries; I make them answer a question a person actually has. Everything ships as plain, dependency-free web pages — fast to load, easy to trust, built in Chicago.</p>
+      <p class="roadmap"><span class="sq"></span>Now expanding to the collar counties — then all of Illinois.</p>
+    </div>
+  </section>
+
+</div>
+
+<section class="close">
+  <div class="wrap">
+    <h3><span class="line">Somebody represents you.</span> <span class="line">Find out who.</span></h3>
+    <div class="row" style="margin-top:42px">
+      <a class="btn btn-ghost" href="https://chidistricts.com/">Open the District Explorer &rarr;</a>
+    </div>
   </div>
-  <p class="embed-note">Live embed of the Chicago District Explorer — click anywhere in the city, or search an address, to see who represents that point.</p>
+</section>
 
-  <nav class="links" aria-label="Elsewhere">
-    <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
+<div class="wrap">
+  <footer>
+    <span>© 2026 Adam Overberg</span>
     <a href="https://github.com/ThursdaysFamous">GitHub</a>
-  </nav>
-</main>
+    <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('overberg-theme', next); } catch (e) {}
+  });
+</script>
 </body>
 </html>
