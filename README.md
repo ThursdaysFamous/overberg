@@ -13,10 +13,12 @@ philosophy as the projects it links to. Served via GitHub Pages (`CNAME` →
 `overberg.co`, `.nojekyll`). It's a hub for what I'm currently building:
 
 - **[Chicago District Explorer](https://chidistricts.com/)** — click any point
-  in Chicago (or search an address) and see every civic district that contains
-  it — ward, police district, community area, congressional and state
-  legislative districts, elected school board, CPS zones, and more — plus who
-  represents you there. Embedded live on the page.
+  (or search an address) and see every civic district that contains it — ward,
+  police district, community area, congressional and state legislative
+  districts, elected school board, CPS zones, and more — plus who represents
+  you there. Started in Chicago; coverage now spans 49 counties across
+  northern and central Illinois, from the Wisconsin line to the Metro East.
+  Embedded live on the page.
 - **[District Explorer: New York City](https://nyc.chidistricts.com/)** — the
   same lookup, ported to NYC.
 - **[District Explorer: San Francisco](https://sf.chidistricts.com/)** — ported
