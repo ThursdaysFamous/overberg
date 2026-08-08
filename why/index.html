@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Why the District Explorer exists — Adam Overberg</title>
+<meta name="description" content="To tell someone which districts contain their home, you need boundary data from 102 Illinois counties. There is no statewide file and no common format. This is what that actually looks like." />
+<link rel="canonical" href="https://overberg.co/why/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Why the District Explorer exists" />
+<meta property="og:description" content="102 counties, 102 answers. What it actually takes to find out who represents an address in Illinois." />
+<meta property="og:url" content="https://overberg.co/why/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8' fill='%23ec3013'/%3E%3C/svg%3E" />
+<script>
+  // Set theme before first paint: stored choice wins, else follow the OS.
+  (function () {
+    try {
+      var s = localStorage.getItem('overberg-theme');
+      var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  })();
+</script>
+<link rel="stylesheet" href="/style.css" />
+<style>
+  /* — page-specific: the essay column, the ladder, the correspondence — */
+  .lede { padding: clamp(42px, 6vw, 64px) 0; }
+  .lede p { font-size: 17px; line-height: 30px; max-width: 62ch; margin: 0 0 21px; }
+  .lede p:last-child { margin-bottom: 0; }
+
+  .section { padding: clamp(48px, 7vw, 80px) 0; }
+  .section > h2 {
+    font-size: clamp(28px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.015em;
+    margin: 0 0 21px; max-width: 20ch;
+  }
+  .section > .intro { font-size: 15.5px; line-height: 28px; margin: 0; max-width: 58ch; }
+
+  /* — the format ladder — */
+  .ladder { margin-top: clamp(36px, 5vw, 56px); }
+  .band { margin-top: 42px; }
+  .band:first-child { margin-top: 0; }
+  .band-head {
+    display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 16px;
+    border-top: 2px solid var(--color-divider); padding-top: 14px;
+  }
+  .band-name {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: 13px; line-height: 14px; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--color-accent-700); margin: 0;
+  }
+  .band-note { font-size: 13px; line-height: 20px; margin: 0; }
+
+  .rung {
+    display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr) 84px;
+    gap: 6px clamp(16px, 3vw, 40px); align-items: start;
+    padding: 20px 0; border-top: 1px solid var(--color-hairline);
+  }
+  .rung-format {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: 17px; line-height: 24px; letter-spacing: -0.01em; margin: 0;
+  }
+  .rung-where {
+    font-size: 12.5px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    margin: 6px 0 0; color: color-mix(in srgb, var(--color-text) 62%, transparent);
+  }
+  .rung-detail { font-size: 15px; line-height: 25px; margin: 0; }
+
+  /* the one true infographic element: how much of the work a machine can do */
+  .meter { display: flex; gap: 3px; justify-self: end; padding-top: 6px; }
+  .meter i { width: 10px; height: 18px; display: block; border: 1px solid var(--color-hairline); }
+  .meter i.on { background: var(--color-accent); border-color: var(--color-accent); }
+
+  @media (max-width: 720px) {
+    .rung { grid-template-columns: 1fr auto; }
+    .rung-detail { grid-column: 1 / -1; margin-top: 8px; }
+    .meter { padding-top: 2px; }
+  }
+
+  /* — correspondence — */
+  .letters { display: grid; gap: 28px; margin-top: clamp(36px, 5vw, 56px); }
+  .letter { border-top: 2px solid var(--color-divider); padding-top: 21px; }
+  .letter h3 { font-size: 20px; line-height: 26px; letter-spacing: -0.01em; margin: 0 0 4px; }
+  .letter .who {
+    font-size: 12.5px; line-height: 18px; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--color-accent-700); margin: 0 0 14px;
+  }
+  .letter p { font-size: 15.5px; line-height: 27px; margin: 0 0 14px; max-width: 56ch; }
+  .letter .lesson {
+    margin: 0; padding-left: 16px; border-left: 2px solid var(--color-accent);
+    font-size: 15px; line-height: 25px; font-weight: 600;
+  }
+  @media (min-width: 900px) { .letters { grid-template-columns: repeat(3, 1fr); gap: 28px clamp(24px, 4vw, 56px); } }
+
+  /* — the finding — */
+  .finding { padding: clamp(48px, 7vw, 80px) 0; }
+  .finding .pull {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: clamp(24px, 3.2vw, 38px); line-height: 1.18; letter-spacing: -0.015em;
+    margin: 0 0 28px; max-width: 24ch;
+  }
+  .finding .pull em { font-style: normal; color: var(--color-accent); }
+  .finding p { font-size: 16px; line-height: 29px; margin: 0 0 21px; max-width: 60ch; }
+  .finding p:last-child { margin-bottom: 0; }
+
+  /* — numbers, late and small — */
+  .tally { padding: clamp(42px, 6vw, 64px) 0; }
+  .tally .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: clamp(28px, 5vw, 42px) 28px; }
+  .tally-num {
+    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
+    font-size: clamp(34px, 3.4vw, 48px); line-height: 1.15; color: var(--color-accent);
+    margin: 0 0 0 -0.045em;
+  }
+  .tally-label {
+    font-size: 13px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase;
+    color: color-mix(in srgb, var(--color-text) 70%, transparent); margin: 14px 0 0;
+  }
+  .tally .breakdown { font-size: 15px; line-height: 27px; margin: clamp(28px, 4vw, 42px) 0 0; max-width: 62ch; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">
+    <a href="/">
+      <svg viewBox="0 0 64 64" aria-hidden="true" style="width:20px;height:20px;flex:none"><polygon points="32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8" fill="var(--color-accent)"/></svg>
+      Adam Overberg
+    </a>
+  </span>
+  <a href="/#work">Work</a>
+  <a href="/why/" aria-current="page">Why</a>
+  <a href="/#about">About</a>
+  <button type="button" id="theme-toggle" class="btn btn-ghost btn-icon" aria-label="Switch light / dark theme" title="Switch light / dark">
+    <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+  </button>
+  <a class="btn btn-primary" href="https://chidistricts.com/">Open the Explorer</a>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker">Why this exists</span>
+    <h1 class="display"><span class="line">The boundaries</span> <span class="line">exist. Publishing</span> <span class="line">them is optional.</span></h1>
+    <p class="sub">To tell someone which districts contain their home, you need boundary data from 102 separate Illinois county governments. There is no statewide file, no common format, and no shared expectation that any of it belongs online. This is what that actually looks like.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="lede">
+    <p>The District Explorer answers one question: <em>who represents this spot?</em> Click a point, get every civic district that contains it — ward, precinct, county board, fire protection district, judicial subcircuit, elected school board — and the name of the person holding each seat.</p>
+    <p>In Chicago that question is nearly easy. The city runs an open data portal, the county runs a GIS service, and the boundaries come back over HTTP in seconds. That version of the project took a weekend.</p>
+    <p>Then it left the city. Every county line the map crosses is a different publisher, a different format, a different answer to the question of whether this is public information at all. Coverage now stands at 59 of Illinois' 102 counties, and almost none of the work was code.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="section">
+    <span class="kicker">What "the data" turns out to mean</span>
+    <h2>Nine formats for one kind of fact.</h2>
+    <p class="intro muted78">These are all answers to the same request — <em>where are your voting precinct and district boundaries?</em> — arranged by how much of the work a computer can do. Every rung is a real county's real answer. The bars on the right are the whole argument.</p>
+
+    <div class="ladder">
+
+      <div class="band">
+        <div class="band-head">
+          <p class="band-name">Machine-readable</p>
+          <p class="band-note muted70">Fetch it and you're done. Roughly a day of work per county.</p>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">A live GIS service</p>
+            <p class="rung-where">Cook · DuPage · Lake · Will · Kane · McHenry · Kendall</p>
+          </div>
+          <p class="rung-detail muted78">An open ArcGIS or Socrata endpoint the app queries at runtime. Boundaries stay current without anyone touching the code. This is the ceiling, and seven counties clear it.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 6 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">A shapefile, on request</p>
+            <p class="rung-where">Jefferson · Ogle · Montgomery</p>
+          </div>
+          <p class="rung-detail muted78">Not on the website. Not in any catalogue. It arrives as an email attachment the same day somebody asks the clerk for it — proper geometry that simply had never been posted.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 5 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i></span>
+        </div>
+      </div>
+
+      <div class="band">
+        <div class="band-head">
+          <p class="band-name">Human-readable</p>
+          <p class="band-note muted70">The information is public. Converting it to data is a person's afternoon — or week.</p>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">A vector PDF map</p>
+            <p class="rung-where">Stephenson</p>
+          </div>
+          <p class="rung-detail muted78">Two PDFs on the county's elections page — one urban, one rural — carrying real vector outlines. Thirty-six precincts were rebuilt by tracing them, then checked against the county's own board-district map, which caught a defect neither map would have shown alone.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 3 of 6"><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">A PDF map book</p>
+            <p class="rung-where">Ogle</p>
+          </div>
+          <p class="rung-detail muted78">Fifty-one pages of precinct maps, plus a polling-location dataset that is points with no boundaries. Complete, public, and useless to software.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 2 of 6"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">A printed directory</p>
+            <p class="rung-where">Washington · Marshall</p>
+          </div>
+          <p class="rung-detail muted78">A 40-page county "Blue Book" and a five-page table of elected officers — both sent as attachments, neither findable by search, neither on a county website. The Blue Book is now the richest municipal source in the project.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 2 of 6"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">Scanned images</p>
+            <p class="rung-where">Brown</p>
+          </div>
+          <p class="rung-detail muted78">Election summaries and precinct reports posted as pictures of pages. Readable by a person, opaque to software — not even the precinct <em>names</em> can be lifted, let alone the shapes.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 1 of 6"><i class="on"></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+
+      <div class="band">
+        <div class="band-head">
+          <p class="band-name">Not available</p>
+          <p class="band-note muted70">The county holds the boundary. You cannot have it.</p>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">Published, but licensed</p>
+            <p class="rung-where">Champaign · Piatt</p>
+          </div>
+          <p class="rung-detail muted78">Complete, current, and online — run by a GIS consortium that sells the data. The licence permits viewing and forbids republishing. This block is legal, not technical, and no amount of engineering touches it.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 0 of 6"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">Refused at the door</p>
+            <p class="rung-where">Adams · Perry</p>
+          </div>
+          <p class="rung-detail muted78">Adams publishes its seven board districts as clean map data — and its website answers every automated visit with a 391-byte Access Denied. The map is open; the page naming who won those districts is not.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 0 of 6"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+
+        <div class="rung">
+          <div>
+            <p class="rung-format">Paper — or no website at all</p>
+            <p class="rung-where">Edwards · Henderson</p>
+          </div>
+          <p class="rung-detail muted78">The Edwards County Clerk volunteered it unprompted: the county's voting district boundaries exist on paper. Edwards has no county website. Henderson's official address, the one in the state's own clerk directory, forwards to a domain parking screen.</p>
+          <span class="meter" role="img" aria-label="Machine-readable: 0 of 6"><i></i><i></i><i></i><i></i><i></i><i></i></span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="section">
+    <span class="kicker">The method that actually worked</span>
+    <h2>Not scraping. Asking.</h2>
+    <p class="intro muted78">After the search engines were exhausted, the remaining tool was email — one narrow question at a time, addressed to the office that would know. Clerks and GIS staff answered, often within the hour. Three exchanges that each taught the project something it had wrong.</p>
+
+    <div class="letters">
+
+      <div class="letter">
+        <p class="who">Hamilton County Clerk's office</p>
+        <h3>Four minutes.</h3>
+        <p class="muted78">The question went out at 9:04 in the morning and was answered at 9:08 — mid-website-migration, with the board's structure, a GIS link, and an apology for the pages that hadn't moved over yet. Told that the McLeansboro precincts were unreadable at that scale, the office followed up with a PDF that included the polling places too.</p>
+        <p class="lesson">Nothing about the county changed that morning. It had the answer the whole time. Somebody just asked.</p>
+      </div>
+
+      <div class="letter">
+        <p class="who">Jefferson County Clerk's office</p>
+        <h3>The boundary is a river.</h3>
+        <p class="muted78">The precinct shapefile came back as an attachment, then the list of which precincts form each of the thirteen board districts. One question remained: what separates Dodds 1 from Dodds 2? The answer, given as the Clerk's own recollection, was that the Casey Fork river splits them — Dodds 2 west, Dodds 1 east.</p>
+        <p class="lesson">Some boundaries are not in any file. No portal has a field for "the river divides them."</p>
+      </div>
+
+      <div class="letter">
+        <p class="who">Montgomery County GIS</p>
+        <h3>Don't trust my layer.</h3>
+        <p class="muted78">A typo spotted in the published data was confirmed and sent to IT. Then, asked which to believe when the GIS polling places disagreed with the Clerk's official list, the county's own GIS tech said the Clerk's list should take precedence — he isn't told about location changes until a new map is needed, so his layer is the older one.</p>
+        <p class="lesson">The authoritative source was not the published one, and only the publisher knew. The portal said nothing.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="finding">
+    <span class="kicker">The finding</span>
+    <p class="pull">"The county publishes no precinct boundaries" is a fact about a <em>website</em>, not about a <em>county</em>.</p>
+    <p class="muted78">Ogle County is the proof. Its record in this project read: <em>the county publishes no precinct boundaries — only a 51-page PDF map book and a polling-location dataset that is points only.</em> Every word of that was true, and had been re-verified more than once.</p>
+    <p class="muted78">The shapefile arrived the day somebody asked for it. Of course it did. A county that runs elections necessarily <em>has</em> precinct geometry — it cannot hand out the right ballots otherwise. Putting that file on a website is a separate act, and one it may simply never have had a reason to perform.</p>
+    <p class="muted78">The same logic runs through everything the map draws. A county that levies a fire protection tax knows exactly where that district ends. A county that seats a board by district knows which townships compose each one. The boundary always exists somewhere. What varies — county to county, office to office — is whether anyone ever decided it should be public.</p>
+    <p class="muted78">Sometimes the honest answer really is no, and that gets recorded too. Edwards County's boundaries are on paper because that is where its Clerk says they are. That is a closed route, not an unmeasured one, and the difference matters: this project keeps a record for every absence, naming the specific artifact a publisher would have to release to close it. Currently there are 120 of them.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="tally" aria-label="Where it stands">
+    <span class="kicker">Where it stands</span>
+    <div class="grid">
+      <div><p class="tally-num">59</p><p class="tally-label">of 102 Illinois counties served</p></div>
+      <div><p class="tally-num">120</p><p class="tally-label">recorded gaps, each naming what would close it</p></div>
+      <div><p class="tally-num">0</p><p class="tally-label">counties left unresearched</p></div>
+    </div>
+    <p class="breakdown muted78">Of those 120 gaps: <strong>95</strong> are things no one publishes in any form, <strong>19</strong> are published but wrong, stale, or incomplete, and <strong>6</strong> are blocked outright by a licence or a server that refuses to answer. Only the last six are anybody's deliberate no.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="lede">
+    <span class="kicker">What it would take</span>
+    <p>None of this is a scandal, and no clerk in this story did anything wrong. County election offices run on small staffs and thin budgets; nobody funded a GIS portal in a county of six thousand people, and nobody should have to. The people who answered these emails were, without exception, generous with their time.</p>
+    <p>But the cost of not publishing doesn't land on the county. It lands on the resident who cannot easily find out who represents them — and it lands hardest in the smallest counties, the ones least able to build the tool that would tell them.</p>
+    <p>Which makes the fix unusually cheap. In most of these counties the file already exists, on a machine somebody signs into every day. Posting it changes nothing about the county's work and everything about what anyone can build on top of it. That is the whole ask: <strong>publish the file you already have.</strong></p>
+  </section>
+
+</div>
+
+<section class="close">
+  <div class="wrap">
+    <h3><span class="line">Every blank space</span> <span class="line">on the map is</span> <span class="line">somebody's decision.</span></h3>
+    <div class="row" style="margin-top:42px">
+      <a class="btn btn-ghost" href="https://chidistricts.com/">See what's on the map &rarr;</a>
+      <a class="btn btn-ghost" href="https://github.com/ThursdaysFamous/DistrictExplorer-CHI">Read the source &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Adam Overberg</span>
+    <a href="/">Home</a>
+    <a href="https://github.com/ThursdaysFamous">GitHub</a>
+    <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('overberg-theme', next); } catch (e) {}
+  });
+</script>
+</body>
+</html>

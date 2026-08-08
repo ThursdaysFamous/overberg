@@ -7,16 +7,24 @@ Live at **[overberg.co](https://overberg.co/)**.
 
 ## What's here
 
-A single, dependency-free static page (`index.html`) — inline CSS and an inline
-SVG mark (the Chicago flag star), no build step and no framework, the same
-philosophy as the projects it links to. Served via GitHub Pages (`CNAME` →
-`overberg.co`, `.nojekyll`). It's a hub for what I'm currently building:
+Dependency-free static pages — a shared `style.css` (Modernist: Archivo, zero
+radius, 2px rules, one red), an inline SVG mark (the Chicago flag star), no build
+step and no framework, the same philosophy as the projects it links to. Served via
+GitHub Pages (`CNAME` → `overberg.co`, `.nojekyll`).
+
+- `index.html` — the landing page, a hub for what I'm currently building.
+- `why/index.html` → **[overberg.co/why](https://overberg.co/why/)** — why the
+  District Explorer exists: the nine incompatible formats Illinois counties hand
+  their boundary data over in, what the county-clerk correspondence returned, and
+  the case for publishing the file you already have.
+
+What it links out to:
 
 - **[Chicago District Explorer](https://chidistricts.com/)** — click any point
   (or search an address) and see every civic district that contains it — ward,
   police district, community area, congressional and state legislative
   districts, elected school board, CPS zones, and more — plus who represents
-  you there. Started in Chicago; coverage now spans 49 counties across
+  you there. Started in Chicago; coverage now spans 59 counties across
   northern and central Illinois, from the Wisconsin line to the Metro East.
   Embedded live on the page.
 - **[District Explorer: New York City](https://nyc.chidistricts.com/)** — the
