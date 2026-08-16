@@ -22,6 +22,23 @@
     } catch (e) { document.documentElement.dataset.theme = 'light'; }
   })();
 </script>
+<!-- Google tag (gtag.js) — production host only; keeps local dev out of analytics -->
+<script>
+  (function () {
+    if (location.hostname !== 'overberg.co' && location.hostname !== 'www.overberg.co') return;
+    if (window.top !== window.self) return; // top-level only — the cookieless GoatCounter still counts embeds
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9VR0BR81ZN';
+    document.head.appendChild(s);
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-9VR0BR81ZN');
+  })();
+</script>
+<!-- GoatCounter — cookieless page counts -->
+<script data-goatcounter="https://overbergco.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="/style.css" />
 <style>
   /* — page-specific: the essay column, the ladder, the correspondence — */
