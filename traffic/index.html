@@ -288,7 +288,7 @@
       <p class="note"><strong>Bluesky</strong> (go.bsky.app) has climbed to the #3 source, more than doubling in the past week to pass DuckDuckGo and Bing.</p>
       <div class="subpanel">
         <h3>Campaigns</h3>
-        <p class="sub">Visits from links tagged with <code>?utm_source=&hellip;</code></p>
+        <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
         <div class="bars" data-bars="campaigns"></div>
       </div>
     </div>
@@ -388,9 +388,9 @@
     if (!rows.length) {
       var empty = document.createElement("p");
       empty.className = "empty";
-      empty.innerHTML = "No campaign-tagged visits yet. Share a link as " +
-        "<code>chidistricts.com/?utm_source=linkedin</code> (or any source name) and it will be " +
-        "counted here — even from apps that strip the referrer.";
+      empty.innerHTML = "No campaign-tagged visits yet. Add " +
+        "<code>&amp;utm_campaign=your-campaign-name</code> to a tagged link to break out " +
+        "individual posts here — even from apps that strip the referrer.";
       el.replaceWith(empty);
       return;
     }
