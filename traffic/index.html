@@ -178,6 +178,12 @@
   .note { margin: 12px 0 0; font-size: 13px; color: var(--ink-2); }
   .note strong { color: var(--ink); font-weight: 650; }
 
+  /* ---------- sub-panel (a panel within a card) ---------- */
+  .subpanel { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--grid); }
+  .subpanel h3 { margin: 0; font-size: 14px; font-weight: 700; letter-spacing: -0.01em; }
+  .empty { margin: 10px 0 0; font-size: 13px; color: var(--muted); }
+  .empty code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--ink-2); }
+
   /* ---------- meter ---------- */
   .meter-wrap { margin-top: 14px; }
   .meter-label { display: flex; justify-content: space-between; font-size: 13px; color: var(--ink-2); margin-bottom: 5px; }
@@ -207,7 +213,6 @@
     .barrow .bar, .meter .fill { transition: width 0.5s ease; }
   }
 </style>
-
 </head>
 <body>
 <div class="wrap">
@@ -281,6 +286,11 @@
       <p class="sub">Top referrers across all 1,472 visits.</p>
       <div class="bars" data-bars="refs"></div>
       <p class="note"><strong>Bluesky</strong> (go.bsky.app) has climbed to the #3 source, more than doubling in the past week to pass DuckDuckGo and Bing.</p>
+      <div class="subpanel">
+        <h3>Campaigns</h3>
+        <p class="sub">Visits from links tagged with <code>?utm_source=&hellip;</code></p>
+        <div class="bars" data-bars="campaigns"></div>
+      </div>
     </div>
   </section>
 
@@ -365,7 +375,8 @@
     geo: [
       ["United States", 1427], ["Canada", 15], ["Denmark", 11],
       ["France", 5], ["Germany", 3], ["Poland", 3]
-    ]
+    ],
+    campaigns: []
   };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
@@ -374,6 +385,15 @@
   var groups = document.querySelectorAll("[data-bars]");
   Array.prototype.forEach.call(groups, function (el) {
     var rows = barData[el.getAttribute("data-bars")];
+    if (!rows.length) {
+      var empty = document.createElement("p");
+      empty.className = "empty";
+      empty.innerHTML = "No campaign-tagged visits yet. Share a link as " +
+        "<code>chidistricts.com/?utm_source=linkedin</code> (or any source name) and it will be " +
+        "counted here — even from apps that strip the referrer.";
+      el.replaceWith(empty);
+      return;
+    }
     var max = rows.reduce(function (m, r) { return Math.max(m, r[1]); }, 0);
     rows.forEach(function (r) {
       var row = document.createElement("div");
