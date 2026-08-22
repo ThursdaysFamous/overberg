@@ -228,21 +228,21 @@
     <div>
       <p class="eyebrow">chidistricts.com &middot; GoatCounter analytics</p>
       <h1>Chicago District Explorer — traffic report</h1>
-      <p class="period">July 10 – August 20, 2026 &middot; 42 days</p>
+      <p class="period">July 10 – August 21, 2026 &middot; 43 days</p>
     </div>
   </header>
 
-  <p class="caveat"><strong>A note on the window:</strong> GoatCounter tracking began with the site's launch on <strong>July 10</strong>, so this report covers the site's entire recorded history (42 days) through the last full day. Counts are GoatCounter "visits": cookieless unique visitors per page or event, per day.</p>
+  <p class="caveat"><strong>A note on the window:</strong> GoatCounter tracking began with the site's launch on <strong>July 10</strong>, so this report covers the site's entire recorded history (43 days) through the last full day. Counts are GoatCounter "visits": cookieless unique visitors per page or event, per day.</p>
 
   <div class="tiles">
     <div class="tile">
       <div class="label">Total activity</div>
-      <div class="value">1,578</div>
+      <div class="value">1,611</div>
       <div class="sub">page visits + feature events</div>
     </div>
     <div class="tile">
       <div class="label">Page visits</div>
-      <div class="value">517</div>
+      <div class="value">535</div>
       <div class="sub">&asymp;12 per day</div>
     </div>
     <div class="tile">
@@ -253,7 +253,7 @@
     <div class="tile">
       <div class="label">From the U.S.</div>
       <div class="value">97%</div>
-      <div class="sub">1,533 of 1,578 visits</div>
+      <div class="sub">1,560 of 1,611 visits</div>
     </div>
   </div>
 
@@ -283,9 +283,9 @@
     </div>
     <div class="card">
       <h2>How readers arrive</h2>
-      <p class="sub">Top referrers across all 1,578 visits.</p>
+      <p class="sub">Top referrers across all 1,611 visits.</p>
       <div class="bars" data-bars="refs"></div>
-      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot, and <strong>LinkedIn</strong> has entered the top six on the strength of tagged links.</p>
+      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot, and <strong>LinkedIn</strong> — the fastest-growing source on tagged links — is closing on Bing.</p>
       <div class="subpanel">
         <h3>Campaigns</h3>
         <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
@@ -328,7 +328,7 @@
   </section>
 
   <footer>
-    Source: GoatCounter (chidistricts.goatcounter.com), read-only dashboard export on August 21, 2026.
+    Source: GoatCounter (chidistricts.goatcounter.com), read-only dashboard export on August 22, 2026.
     This report refreshes daily through September 10 (the site's two-month mark), then weekly.
     Tracking is cookieless and identity-free; language collection is disabled by site settings.
     "Feature interactions" are the app's custom events (point selects, address searches, geolocation, layer toggles).
@@ -351,33 +351,34 @@
     ["Aug 7", 8, 40],   ["Aug 8", 11, 16],  ["Aug 9", 4, 7],    ["Aug 10", 7, 18],
     ["Aug 11", 8, 13],  ["Aug 12", 13, 23], ["Aug 13", 7, 39],  ["Aug 14", 8, 41],
     ["Aug 15", 5, 34],  ["Aug 16", 20, 45], ["Aug 17", 4, 18], ["Aug 18", 4, 14],
-    ["Aug 19", 27, 56], ["Aug 20", 13, 24]
+    ["Aug 19", 27, 56], ["Aug 20", 13, 24],
+    ["Aug 21", 18, 13]
   ];
 
   var barData = {
     layers: [
-      ["Ward", 108], ["Congress", 58], ["School board", 52], ["IL House", 47],
-      ["IL Senate", 44], ["Ward precinct", 30], ["Police council", 29],
+      ["Ward", 110], ["Congress", 58], ["School board", 54], ["IL House", 47],
+      ["IL Senate", 44], ["Ward precinct", 32], ["Police council", 29],
       ["County board", 27], ["Police district", 24], ["School district", 19]
     ],
     refs: [
-      ["Direct / unknown", 1047], ["Google", 251], ["Bluesky", 93],
-      ["DuckDuckGo", 54], ["Bing", 44], ["LinkedIn", 22]
+      ["Direct / unknown", 1065], ["Google", 251], ["Bluesky", 93],
+      ["DuckDuckGo", 54], ["Bing", 44], ["LinkedIn", 35]
     ],
     systems: [
-      ["Android", 489], ["iOS", 446], ["Windows", 391], ["macOS", 224], ["Linux", 28]
+      ["Android", 497], ["iOS", 455], ["Windows", 397], ["macOS", 234], ["Linux", 28]
     ],
     browsers: [
-      ["Chrome", 1001], ["Safari", 501], ["Firefox", 60], ["Edge", 14]
+      ["Chrome", 1020], ["Safari", 510], ["Firefox", 65], ["Edge", 14]
     ],
     actions: [
-      ["Point selects", 157], ["Address searches", 131], ["Geolocations", 46]
+      ["Point selects", 161], ["Address searches", 133], ["Geolocations", 46]
     ],
     geo: [
-      ["United States", 1533], ["Canada", 15], ["Denmark", 11],
+      ["United States", 1560], ["Canada", 20], ["Denmark", 11],
       ["France", 5], ["Germany", 3], ["Poland", 3]
     ],
-    campaigns: [["2026-08", 13]]
+    campaigns: [["2026-08", 16]]
   };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
