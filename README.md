@@ -24,7 +24,7 @@ What it links out to:
   (or search an address) and see every civic district that contains it — ward,
   police district, community area, congressional and state legislative
   districts, elected school board, CPS zones, and more — plus who represents
-  you there. Started in Chicago; coverage now spans 87 counties across
+  you there. Started in Chicago; coverage now spans 88 counties across
   northern and central Illinois, from the Wisconsin line to the Metro East.
   Embedded live on the page.
 - **[District Explorer: New York City](https://nyc.chidistricts.com/)** — the
