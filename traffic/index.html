@@ -228,32 +228,32 @@
     <div>
       <p class="eyebrow">chidistricts.com &middot; GoatCounter analytics</p>
       <h1>Chicago District Explorer — traffic report</h1>
-      <p class="period">July 10 – August 21, 2026 &middot; 43 days</p>
+      <p class="period">July 10 – August 22, 2026 &middot; 44 days</p>
     </div>
   </header>
 
-  <p class="caveat"><strong>A note on the window:</strong> GoatCounter tracking began with the site's launch on <strong>July 10</strong>, so this report covers the site's entire recorded history (43 days) through the last full day. Counts are GoatCounter "visits": cookieless unique visitors per page or event, per day.</p>
+  <p class="caveat"><strong>A note on the window:</strong> GoatCounter tracking began with the site's launch on <strong>July 10</strong>, so this report covers the site's entire recorded history (44 days) through the last full day. Counts are GoatCounter "visits": cookieless unique visitors per page or event, per day.</p>
 
   <div class="tiles">
     <div class="tile">
       <div class="label">Total activity</div>
-      <div class="value">1,611</div>
+      <div class="value">1,703</div>
       <div class="sub">page visits + feature events</div>
     </div>
     <div class="tile">
       <div class="label">Page visits</div>
-      <div class="value">535</div>
-      <div class="sub">&asymp;12 per day</div>
+      <div class="value">571</div>
+      <div class="sub">&asymp;13 per day</div>
     </div>
     <div class="tile">
       <div class="label">Busiest day</div>
-      <div class="value">83</div>
-      <div class="sub">Wednesday, Aug 19</div>
+      <div class="value">96</div>
+      <div class="sub">Saturday, Aug 22 — the newest day is the biggest yet</div>
     </div>
     <div class="tile">
       <div class="label">From the U.S.</div>
       <div class="value">97%</div>
-      <div class="sub">1,560 of 1,611 visits</div>
+      <div class="sub">1,651 of 1,703 visits</div>
     </div>
   </div>
 
@@ -283,9 +283,9 @@
     </div>
     <div class="card">
       <h2>How readers arrive</h2>
-      <p class="sub">Top referrers across all 1,611 visits.</p>
+      <p class="sub">Top referrers across all 1,703 visits.</p>
       <div class="bars" data-bars="refs"></div>
-      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot, and <strong>LinkedIn</strong> — the fastest-growing source on tagged links — is closing on Bing.</p>
+      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot, and <strong>LinkedIn</strong> — the fastest-growing source on tagged links — has now passed Bing.</p>
       <div class="subpanel">
         <h3>Campaigns</h3>
         <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
@@ -328,7 +328,7 @@
   </section>
 
   <footer>
-    Source: GoatCounter (chidistricts.goatcounter.com), read-only dashboard export on August 22, 2026.
+    Source: GoatCounter (chidistricts.goatcounter.com), read-only dashboard export on August 23, 2026.
     This report refreshes daily through September 10 (the site's two-month mark), then weekly.
     Tracking is cookieless and identity-free; language collection is disabled by site settings.
     "Feature interactions" are the app's custom events (point selects, address searches, geolocation, layer toggles).
@@ -352,33 +352,33 @@
     ["Aug 11", 8, 13],  ["Aug 12", 13, 23], ["Aug 13", 7, 39],  ["Aug 14", 8, 41],
     ["Aug 15", 5, 34],  ["Aug 16", 20, 45], ["Aug 17", 4, 18], ["Aug 18", 4, 14],
     ["Aug 19", 27, 56], ["Aug 20", 13, 24],
-    ["Aug 21", 18, 13]
+    ["Aug 21", 18, 13], ["Aug 22", 36, 60]
   ];
 
   var barData = {
     layers: [
-      ["Ward", 110], ["Congress", 58], ["School board", 54], ["IL House", 47],
-      ["IL Senate", 44], ["Ward precinct", 32], ["Police council", 29],
-      ["County board", 27], ["Police district", 24], ["School district", 19]
+      ["Ward", 118], ["Congress", 59], ["School board", 58], ["IL House", 50],
+      ["IL Senate", 46], ["Ward precinct", 32], ["Police council", 30],
+      ["County board", 29], ["Police district", 24], ["School district", 20]
     ],
     refs: [
-      ["Direct / unknown", 1065], ["Google", 251], ["Bluesky", 93],
-      ["DuckDuckGo", 54], ["Bing", 44], ["LinkedIn", 35]
+      ["Direct / unknown", 1119], ["Google", 272], ["Bluesky", 93],
+      ["DuckDuckGo", 54], ["LinkedIn", 48], ["Bing", 44]
     ],
     systems: [
-      ["Android", 497], ["iOS", 455], ["Windows", 397], ["macOS", 234], ["Linux", 28]
+      ["Android", 531], ["iOS", 495], ["Windows", 406], ["macOS", 240], ["Linux", 31]
     ],
     browsers: [
-      ["Chrome", 1020], ["Safari", 510], ["Firefox", 65], ["Edge", 14]
+      ["Chrome", 1068], ["Safari", 550], ["Firefox", 69], ["Edge", 14]
     ],
     actions: [
-      ["Point selects", 161], ["Address searches", 133], ["Geolocations", 46]
+      ["Point selects", 180], ["Address searches", 146], ["Geolocations", 46]
     ],
     geo: [
-      ["United States", 1560], ["Canada", 20], ["Denmark", 11],
+      ["United States", 1651], ["Canada", 21], ["Denmark", 11],
       ["France", 5], ["Germany", 3], ["Poland", 3]
     ],
-    campaigns: [["2026-08", 16]]
+    campaigns: [["2026-08", 36]]
   };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
@@ -424,7 +424,7 @@
   var box = document.getElementById("dailyChart");
   var W = 900, H = 250, padL = 34, padR = 6, padT = 10, padB = 26;
   var plotW = W - padL - padR, plotH = H - padT - padB;
-  var yMax = 90; /* clean ticks above the 81 peak */
+  var yMax = 100; /* clean ticks above the 96 peak */
   var n = daily.length;
   var band = plotW / n;
   var colW = Math.min(20, band - 4);
@@ -445,7 +445,7 @@
   function y(v) { return padT + plotH * (1 - v / yMax); }
 
   /* gridlines + y ticks */
-  [0, 30, 60, 90].forEach(function (t) {
+  [0, 25, 50, 75, 100].forEach(function (t) {
     var yy = y(t);
     svg.appendChild(el("line", {
       x1: padL, x2: W - padR, y1: yy, y2: yy,
@@ -461,7 +461,8 @@
 
   /* x labels: weekly */
   daily.forEach(function (d, i) {
-    if (i % 7 !== 0 && i !== n - 1) return;
+    /* weekly ticks + the final day; drop a weekly tick that would crowd the final label */
+    if (i !== n - 1 && (i % 7 !== 0 || n - 1 - i < 3)) return;
     var last = i === n - 1;
     var lab = el("text", {
       x: last ? W - padR : padL + band * i + band / 2, y: H - 8,
@@ -534,13 +535,13 @@
   });
 
   /* direct label on the peak only */
-  var peak = 40; /* Aug 19 */
+  var peak = 43; /* Aug 22 */
   var pd = daily[peak];
   var plab = el("text", {
     x: padL + band * peak + band / 2, y: y(pd[1] + pd[2]) - 7,
     "text-anchor": "middle", "font-size": 11.5, "font-weight": 700, fill: "var(--ink)"
   });
-  plab.textContent = "83";
+  plab.textContent = "96";
   svg.appendChild(plab);
 
   box.insertBefore(svg, tooltip);
