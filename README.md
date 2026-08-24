@@ -20,16 +20,16 @@ GitHub Pages (`CNAME` → `overberg.co`, `.nojekyll`).
 
 What it links out to:
 
-- **[Chicago District Explorer](https://chidistricts.com/)** — click any point
-  (or search an address) and see every civic district that contains it — ward,
-  police district, community area, congressional and state legislative
-  districts, elected school board, CPS zones, and more — plus who represents
-  you there. Started in Chicago; coverage now spans 89 counties across
-  northern and central Illinois, from the Wisconsin line to the Metro East.
-  Embedded live on the page.
-- **[District Explorer: New York City](https://nyc.chidistricts.com/)** — the
+- **[districtry](https://districtry.com/il/)** (formerly the Chicago District
+  Explorer) — click any point (or search an address) and see every civic
+  district that contains it — ward, police district, community area,
+  congressional and state legislative districts, elected school board, CPS
+  zones, and more — plus who represents you there. Started in Chicago;
+  coverage now spans 89 counties across northern and central Illinois, from
+  the Wisconsin line to the Metro East. Embedded live on the page.
+- **[District Explorer: New York City](https://districtry.com/ny/)** — the
   same lookup, ported to NYC.
-- **[District Explorer: San Francisco](https://sf.chidistricts.com/)** — ported
+- **[District Explorer: San Francisco](https://districtry.com/ca/)** — ported
   to SF.
 
 ## Develop
