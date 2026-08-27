@@ -130,9 +130,9 @@
 
   <section class="stats" aria-label="By the numbers">
     <div class="grid">
-      <div><p class="stat-num">4</p><p class="stat-label">Places live — Illinois, Wisconsin, NYC, SF</p></div>
-      <div><p class="stat-num">39</p><p class="stat-label">District layers, ward to judicial circuit</p></div>
-      <div><p class="stat-num">90</p><p class="stat-label">Illinois counties served — and growing</p></div>
+      <div><p class="stat-num" data-stat="places">4</p><p class="stat-label">Places live — Illinois, Wisconsin, NYC, SF</p></div>
+      <div><p class="stat-num" data-stat="layers.il">39</p><p class="stat-label">District layers, ward to judicial circuit</p></div>
+      <div><p class="stat-num" data-stat="illinois.counties_served">91</p><p class="stat-label">Illinois counties served — and growing</p></div>
     </div>
   </section>
 
@@ -142,7 +142,7 @@
     <span class="kicker">Currently building</span>
     <div class="cols">
       <h2>districtry</h2>
-      <p class="muted78">One click, every district: your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — with the name of who represents you in each. Started in Chicago as the Chicago District Explorer, it now covers 90 counties across northern and central Illinois, from the Wisconsin line to the Metro East. <a href="https://districtry.com/il/" style="font-weight:600">districtry.com/il &rarr;</a> · <a href="/why/" style="font-weight:600">why it took 102 conversations &rarr;</a></p>
+      <p class="muted78">One click, every district: your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — with the name of who represents you in each. Started in Chicago as the Chicago District Explorer, it now covers 91 counties across northern and central Illinois, from the Wisconsin line to the Metro East. <a href="https://districtry.com/il/" style="font-weight:600">districtry.com/il &rarr;</a> · <a href="/why/" style="font-weight:600">why it took 102 conversations &rarr;</a></p>
     </div>
   </section>
 
@@ -179,7 +179,7 @@
       <span class="kicker">About</span>
       <h2>Open data, no middleman.</h2>
       <p class="bio muted78">Government publishes the boundaries; I make them answer a question a person actually has. Everything ships as plain, dependency-free web pages — fast to load, easy to trust, built in Chicago.</p>
-      <p class="roadmap"><span class="sq"></span>90 Illinois counties and counting — headed for the whole state.</p>
+      <p class="roadmap"><span class="sq"></span><span data-stat="illinois.counties_served">91</span> Illinois counties and counting — headed for the whole state.</p>
     </div>
   </section>
 
@@ -211,6 +211,40 @@
     document.documentElement.dataset.theme = next;
     try { localStorage.setItem('overberg-theme', next); } catch (e) {}
   });
+</script>
+<script>
+/* These numbers are DERIVED in the districtry repo and were TYPED here, and
+   that does not hold: the county count was corrected by hand on 2026-08-26
+   and was wrong again the next day. districtry now publishes them at
+   /stats.json, generated from its own coverage lists and gated in its CI, so
+   this page reads them instead of restating them.
+
+   Progressive enhancement, deliberately. The value in the HTML is correct at
+   publish time and is what a reader sees with JS off, on a slow network, or
+   if districtry.com is unreachable — the fetch only ever CORRECTS a number
+   that has since moved. Nothing here can empty an element or leave a spinner:
+   a failure is silent and the page keeps the number it shipped with. */
+(function () {
+  "use strict";
+  var els = document.querySelectorAll("[data-stat]");
+  if (!els.length || !window.fetch) return;
+  fetch("https://districtry.com/stats.json", { mode: "cors" })
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(function (d) {
+      if (!d) return;
+      Array.prototype.forEach.call(els, function (el) {
+        /* "illinois.counties_served" walks the object; a missing key is left
+           alone rather than written as undefined. */
+        var v = el.getAttribute("data-stat").split(".").reduce(function (o, k) {
+          return o && typeof o === "object" ? o[k] : undefined;
+        }, d);
+        if (typeof v === "number" && String(v) !== el.textContent.trim()) {
+          el.textContent = String(v);
+        }
+      });
+    })
+    .catch(function () { /* offline, blocked, or districtry down — keep the shipped values */ });
+})();
 </script>
 </body>
 </html>
