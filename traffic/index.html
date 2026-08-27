@@ -217,22 +217,22 @@
     <div>
       <p class="eyebrow">districtry.com &middot; GoatCounter analytics</p>
       <h1>Districtry — fleet traffic report</h1>
-      <p class="period">July 10 – August 25, 2026 &middot; 47 days</p>
+      <p class="period">July 10 – August 26, 2026 &middot; 48 days</p>
     </div>
   </header>
 
-  <p class="caveat"><strong>A note on the window and the paths:</strong> tracking began at launch on <strong>July 10</strong>, so this is the fleet's entire recorded history (47 days) through the last full day. Until <strong>August 24</strong> the Illinois app was served from <code>/</code> at chidistricts.com; that day it moved under <code>/il/</code> and <code>/</code> became the fleet landing page. The series spans both, so <code>/</code> is counted as Illinois before the cutover and as the landing page after it &mdash; on the boundary day itself the split is taken at 11:00&nbsp;UTC, the hour <code>/il/</code> first recorded traffic. Wisconsin joined the fleet on the same day and is included below. Counts are GoatCounter "visits": cookieless, identity-free. The <strong>1,959</strong> figure is unique visits across the whole window; the daily columns re-count a returning visitor on each day they appear, which is why they sum higher.</p>
+  <p class="caveat"><strong>A note on the window and the paths:</strong> tracking began at launch on <strong>July 10</strong>, so this is the fleet's entire recorded history (48 days) through the last full day. Until <strong>August 24</strong> the Illinois app was served from <code>/</code> at chidistricts.com; that day it moved under <code>/il/</code> and <code>/</code> became the fleet landing page. The series spans both, so <code>/</code> is counted as Illinois before the cutover and as the landing page after it &mdash; on the boundary day itself the split is taken at 11:00&nbsp;UTC, the hour <code>/il/</code> first recorded traffic. Wisconsin joined the fleet on the same day and is included below. Counts are GoatCounter "visits": cookieless, identity-free. The <strong>2,008</strong> figure is unique visits across the whole window; the daily columns re-count a returning visitor on each day they appear, which is why they sum higher.</p>
 
   <div class="tiles">
     <div class="tile">
       <div class="label">Total activity</div>
-      <div class="value">1,961</div>
+      <div class="value">2,026</div>
       <div class="sub">page visits + feature events</div>
     </div>
     <div class="tile">
       <div class="label">Page visits</div>
-      <div class="value">667</div>
-      <div class="sub">&asymp;14 per day</div>
+      <div class="value">708</div>
+      <div class="sub">&asymp;15 per day</div>
     </div>
     <div class="tile">
       <div class="label">Busiest day</div>
@@ -242,13 +242,13 @@
     <div class="tile">
       <div class="label">From the U.S.</div>
       <div class="value">97%</div>
-      <div class="sub">1,899 of 1,959 visits</div>
+      <div class="sub">1,942 of 2,008 visits</div>
     </div>
   </div>
 
   <section class="card">
     <h2>Daily activity</h2>
-    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at 133. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed.</p>
+    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at 133. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed. August 26 recovers to 65, and for the first time some of it lands on the Illinois SEO pages rather than the app: <code>/il/police-district.html</code> drew 7 visits and <code>/il/school-board.html</code> 2.</p>
     <div class="legend">
       <span class="key"><span class="swatch" style="background:var(--s1)"></span>Page visits</span>
       <span class="key"><span class="swatch" style="background:var(--s2)"></span>Feature interactions</span>
@@ -267,7 +267,7 @@
     <h2>By instance</h2>
     <p class="sub">Page visits split by path prefix &mdash; which app in the fleet people actually opened.</p>
     <div class="bars" data-bars="instances"></div>
-    <p class="note"><strong>New York, San Francisco and Wisconsin read zero, and that is a reporting gap rather than a verdict on the apps.</strong> Until <strong>August 24</strong> their analytics tags pointed at GoatCounter sites that did not exist, so every one of their visits was fired into the void and dropped &mdash; unrecoverable. They only began reporting here when the tags were repointed at this site, one day before this window ends. Their history is genuinely absent, not merely low. Wisconsin is a separate case again &mdash; it shipped on August 24 and simply has not been announced yet, so zero is the honest number rather than a missing one. Give all three a few days before reading anything into the comparison.</p>
+    <p class="note"><strong>Wisconsin and New York have registered their first visits &mdash; two and one.</strong> Read nothing into the ranking yet: until <strong>August 24</strong> the other instances' analytics tags pointed at GoatCounter sites that did not exist, so every one of their visits was fired into the void and dropped, unrecoverable. They have been reporting here for two days. Wisconsin is a further case again &mdash; it shipped on the 24th and has still not been announced, so these are people who found it unaided. San Francisco remains at zero. Illinois's lead is four weeks of history the others do not have, not four weeks of better performance.</p>
   </section>
 
   <section class="grid2">
@@ -275,13 +275,13 @@
       <h2>Most-toggled layers</h2>
       <p class="sub">Which district layers people actually reach for. Top 10 of those recorded.</p>
       <div class="bars" data-bars="layers"></div>
-      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window that blending is theoretical &mdash; New York, San Francisco and Wisconsin recorded no visits at all &mdash; so these counts are effectively all Illinois. It will stop being theoretical as soon as they do.</p>
+      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window the blending is still negligible rather than theoretical &mdash; New York and Wisconsin have three page visits between them and San Francisco none &mdash; so these counts are effectively all Illinois. That stops being true the moment the other instances see real use.</p>
     </div>
     <div class="card">
       <h2>How readers arrive</h2>
-      <p class="sub">Top referrers across all 1,959 visits.</p>
+      <p class="sub">Top referrers across all 2,008 visits.</p>
       <div class="bars" data-bars="refs"></div>
-      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot and <strong>LinkedIn</strong> the #4, now clear of DuckDuckGo. Search engines together (Google, DuckDuckGo, Bing) account for 382 visits.</p>
+      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot and <strong>LinkedIn</strong> the #4, now clear of DuckDuckGo. Search engines together (Google, DuckDuckGo, Bing) account for 384 visits.</p>
       <div class="subpanel">
         <h3>Campaigns</h3>
         <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
@@ -295,7 +295,7 @@
       <h2>Devices</h2>
       <p class="sub">Operating systems.</p>
       <div class="bars" data-bars="systems"></div>
-      <p class="note"><strong>62% of visits are mobile</strong> (iOS + Android) &mdash; the map is mostly being used on phones, which is why the home-screen install matters.</p>
+      <p class="note"><strong>63% of visits are mobile</strong> (iOS + Android) &mdash; the map is mostly being used on phones, which is why the home-screen install matters.</p>
     </div>
     <div class="card">
       <h2>Browsers</h2>
@@ -324,7 +324,7 @@
   </section>
 
   <footer>
-    Source: GoatCounter (districtry.goatcounter.com), read-only dashboard export on August 26, 2026.
+    Source: GoatCounter (districtry.goatcounter.com), read-only dashboard export on August 27, 2026.
     The whole fleet &mdash; Illinois, New York, San Francisco and Wisconsin &mdash; reports to this one site; instances are told apart by path.
     This report refreshes daily through September 10 (the fleet's two-month mark), then weekly.
     Tracking is cookieless and identity-free; language collection is disabled by site settings.
@@ -336,7 +336,7 @@
 (function () {
   "use strict";
 
-  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-08-25) ---- */
+  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-08-26) ---- */
   var daily = [
     ["Jul 10", 22, 20],
     ["Jul 11", 28, 46],
@@ -384,35 +384,36 @@
     ["Aug 22", 36, 60],
     ["Aug 23", 19, 31],
     ["Aug 24", 52, 81],
-    ["Aug 25", 25, 34]
+    ["Aug 25", 25, 34],
+    ["Aug 26", 41, 24]
   ];
 
   var barData = {
     instances: [
-      ["Illinois", 636], ["Fleet landing", 31], ["New York", 0],
-      ["San Francisco", 0], ["Wisconsin", 0]
+      ["Illinois", 655], ["Fleet landing", 50], ["Wisconsin", 2],
+      ["New York", 1], ["San Francisco", 0]
     ],
     layers: [
-      ["Ward", 129], ["Congress", 68], ["School board", 61], ["IL House", 58],
+      ["Ward", 131], ["Congress", 68], ["School board", 62], ["IL House", 59],
       ["IL Senate", 53], ["County board", 36], ["Ward precinct", 35],
-      ["Police council", 31], ["Police district", 30], ["School district", 22]
+      ["Police district", 32], ["Police council", 31], ["School district", 23]
     ],
     refs: [
-      ["Direct / unknown", 1171], ["Google", 276], ["Bluesky", 93],
+      ["Direct / unknown", 1201], ["Google", 278], ["Bluesky", 93],
       ["LinkedIn", 77], ["DuckDuckGo", 59], ["Bing", 47]
     ],
     systems: [
-      ["iOS", 653], ["Android", 568], ["Windows", 447], ["macOS", 258], ["Linux", 33]
+      ["iOS", 664], ["Android", 594], ["Windows", 457], ["macOS", 258], ["Linux", 35]
     ],
     browsers: [
-      ["Chrome", 1165], ["Safari", 708], ["Firefox", 70], ["Edge", 14]
+      ["Chrome", 1199], ["Safari", 719], ["Firefox", 74], ["Edge", 14]
     ],
     actions: [
-      ["Point selects", 203], ["Address searches", 155], ["Geolocations", 50]
+      ["Point selects", 208], ["Address searches", 159], ["Geolocations", 50]
     ],
     geo: [
-      ["United States", 1899], ["Canada", 22], ["Denmark", 11],
-      ["Germany", 5], ["France", 5], ["Poland", 3]
+      ["United States", 1942], ["Canada", 22], ["Denmark", 11],
+      ["France", 7], ["Germany", 5], ["United Kingdom", 3]
     ],
     campaigns: [["2026-08", 68]]
   };
@@ -471,7 +472,7 @@
   var svg = document.createElementNS(svgNS, "svg");
   svg.setAttribute("viewBox", "0 0 " + W + " " + H);
   svg.setAttribute("role", "img");
-  svg.setAttribute("aria-label", "Stacked daily column chart of page visits and feature interactions, July 10 to August 25 2026");
+  svg.setAttribute("aria-label", "Stacked daily column chart of page visits and feature interactions, July 10 to August 26 2026");
 
   function el(tag, attrs) {
     var e = document.createElementNS(svgNS, tag);
