@@ -113,7 +113,7 @@
     <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
     <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
   </button>
-  <a class="btn btn-primary" href="https://districtry.com/il/">Open the Explorer</a>
+  <a class="btn btn-primary" href="https://districtry.com/il/">Open districtry</a>
 </nav>
 <div class="wrap">
 
@@ -157,13 +157,24 @@
 
   <section class="ports" aria-label="Ports">
     <span class="kicker">Also live</span>
+    <!-- One card per place BESIDES Illinois, which has its own section above.
+         The count in the stat tile is read from districtry.com/stats.json; these
+         cards are hand-written because each needs its own sentence. If a new
+         place ships, it needs a card here — Wisconsin went live on 2026-08-24
+         and sat unlisted for four days while the tile above already counted it,
+         so the page contradicted itself on one screen. -->
     <div class="grid">
+      <a class="port" href="https://districtry.com/wi/">
+        <h3>districtry / wi &mdash; Wisconsin &rarr;</h3>
+        <p class="muted78">The same lookup, statewide: county boards, circuit courts, and
+          the wards and aldermanic districts underneath them.</p>
+      </a>
       <a class="port" href="https://districtry.com/ny/">
-        <h3>District Explorer: New York City &rarr;</h3>
+        <h3>districtry / ny &mdash; New York City &rarr;</h3>
         <p class="muted78">The same lookup, rebuilt for the five boroughs.</p>
       </a>
       <a class="port" href="https://districtry.com/ca/">
-        <h3>District Explorer: San Francisco &rarr;</h3>
+        <h3>districtry / ca &mdash; San Francisco &rarr;</h3>
         <p class="muted78">The same lookup, for the seven-by-seven.</p>
       </a>
     </div>
@@ -189,7 +200,7 @@
   <div class="wrap">
     <h3><span class="line">Somebody represents you.</span> <span class="line">Find out who.</span></h3>
     <div class="row" style="margin-top:42px">
-      <a class="btn btn-ghost" href="https://districtry.com/il/">Open the District Explorer &rarr;</a>
+      <a class="btn btn-ghost" href="https://districtry.com/il/">Open districtry &rarr;</a>
     </div>
   </div>
 </section>
