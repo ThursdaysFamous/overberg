@@ -218,38 +218,38 @@
     <div>
       <p class="eyebrow">districtry.com &middot; GoatCounter analytics</p>
       <h1>Districtry — fleet traffic report</h1>
-      <p class="period">July 10 – August 29, 2026 &middot; 51 days</p>
+      <p class="period"><span data-stat="range">July 10 – August 29, 2026</span> &middot; <span data-stat="days">51</span> days</p>
     </div>
   </header>
 
-  <p class="caveat"><strong>A note on the window and the paths:</strong> tracking began at launch on <strong>July 10</strong>, so this is the fleet's entire recorded history (51 days) through the last full day. Until <strong>August 24</strong> the Illinois app was served from <code>/</code> at chidistricts.com; that day it moved under <code>/il/</code> and <code>/</code> became the fleet landing page. The series spans both, so <code>/</code> is counted as Illinois before the cutover and as the landing page after it &mdash; on the boundary day itself the split is taken at 11:00&nbsp;UTC, the hour <code>/il/</code> first recorded traffic. Wisconsin joined the fleet on the same day and is included below. Counts are GoatCounter "visits": cookieless, identity-free. The <strong>2,252</strong> figure is unique visits across the whole window; the daily columns re-count a returning visitor on each day they appear, which is why they sum higher.</p>
+  <p class="caveat"><strong>A note on the window and the paths:</strong> tracking began at launch on <strong>July 10</strong>, so this is the fleet's entire recorded history (<span data-stat="days">51</span> days) through the last full day. Until <strong>August 24</strong> the Illinois app was served from <code>/</code> at chidistricts.com; that day it moved under <code>/il/</code> and <code>/</code> became the fleet landing page. The series spans both, so <code>/</code> is counted as Illinois before the cutover and as the landing page after it &mdash; on the boundary day itself the split is taken at 11:00&nbsp;UTC, the hour <code>/il/</code> first recorded traffic. Wisconsin joined the fleet on the same day and is included below. Counts are GoatCounter "visits": cookieless, identity-free. The <strong><span data-stat="total">2,252</span></strong> figure is unique visits across the whole window; the daily columns re-count a returning visitor on each day they appear, which is why they sum higher.</p>
 
   <div class="tiles">
     <div class="tile">
       <div class="label">Total activity</div>
-      <div class="value">2,252</div>
+      <div class="value"><span data-stat="total">2,252</span></div>
       <div class="sub">page visits + feature events</div>
     </div>
     <div class="tile">
       <div class="label">Page visits</div>
-      <div class="value">841</div>
-      <div class="sub">&asymp;16 per day</div>
+      <div class="value"><span data-stat="pageviews">841</span></div>
+      <div class="sub">&asymp;<span data-stat="perDay">16</span> per day</div>
     </div>
     <div class="tile">
       <div class="label">Busiest day</div>
-      <div class="value">133</div>
+      <div class="value"><span data-stat="peak">133</span></div>
       <div class="sub">Monday, Aug 24 &mdash; rebrand day</div>
     </div>
     <div class="tile">
       <div class="label">From the U.S.</div>
-      <div class="value">97%</div>
-      <div class="sub">2,184 of 2,252 visits</div>
+      <div class="value"><span data-stat="usPct">97%</span></div>
+      <div class="sub"><span data-stat="usCount">2,184</span> of <span data-stat="total">2,252</span> visits</div>
     </div>
   </div>
 
   <section class="card">
     <h2>Daily activity</h2>
-    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at 133. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed. Since then the fleet has settled into a steady band rather than a spike: 65, 93, 66 and 72 on the four days to August 29, every one of them above the pre-rebrand average. The Illinois SEO pages keep compounding — <code>/il/police-district.html</code> is at 18 visits and <code>/il/school-board.html</code> at 14 — and August 27 remains the strongest day since the rebrand at 93.</p>
+    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at <span data-stat="peak">133</span>. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed. Since then the fleet has settled into a steady band rather than a spike: <span data-stat="recentDays">65, 93, 66 and 72</span> on the four days to <span data-stat="lastDay">August 29</span>, every one of them above the pre-rebrand average. The Illinois SEO pages keep compounding — <code>/il/police-district.html</code> is at <span data-stat="seoPolice">18</span> visits and <code>/il/school-board.html</code> at <span data-stat="seoSchool">14</span> — and <span data-stat="bestSinceDay">August 27</span> remains the strongest day since the rebrand at <span data-stat="bestSince">93</span>.</p>
     <div class="legend">
       <span class="key"><span class="swatch" style="background:var(--s1)"></span>Page visits</span>
       <span class="key"><span class="swatch" style="background:var(--s2)"></span>Feature interactions</span>
@@ -268,7 +268,7 @@
     <h2>By instance</h2>
     <p class="sub">Page visits split by path prefix &mdash; which app in the fleet people actually opened.</p>
     <div class="bars" data-bars="instances"></div>
-    <p class="note"><strong>Six bars: five apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">The path widget lists its top ten, which covers 840 of the 841 page visits; the last two sit in paths below that cut.</span></p>
+    <p class="note"><strong>Six bars: five apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">The path widget lists its top ten, which covers <span data-stat="instSum">840</span> of the <span data-stat="pageviews">841</span> page visits; the last two sit in paths below that cut.</span></p>
   </section>
 
   <section class="grid2">
@@ -276,13 +276,13 @@
       <h2>Most-toggled layers</h2>
       <p class="sub">Which district layers people actually reach for. Top 10 of those recorded.</p>
       <div class="bars" data-bars="layers"></div>
-      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window the blending is still negligible &mdash; the other five instances have 21 page visits between them against Illinois's 699 &mdash; so these counts are effectively all Illinois. That stops being true as the others grow.</p>
+      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window the blending is still negligible &mdash; the other five instances have <span data-stat="otherInst">21</span> page visits between them against Illinois's <span data-stat="topInst">699</span> &mdash; so these counts are effectively all Illinois. That stops being true as the others grow.</p>
     </div>
     <div class="card">
       <h2>How readers arrive</h2>
-      <p class="sub">Top referrers across all 2,252 visits.</p>
+      <p class="sub">Top referrers across all <span data-stat="total">2,252</span> visits.</p>
       <div class="bars" data-bars="refs"></div>
-      <p class="note"><strong>Bluesky</strong> (go.bsky.app) holds the #3 source spot and <strong>LinkedIn</strong> the #4, now clear of DuckDuckGo. Search engines together (Google, DuckDuckGo, Bing) account for 398 visits.</p>
+      <p class="note"><strong><span data-stat="ref3">Bluesky</span></strong> holds the #3 source spot and <strong><span data-stat="ref4">LinkedIn</span></strong> the #4. Search engines together (Google, DuckDuckGo, Bing) account for <span data-stat="searchVisits">398</span> visits.</p>
       <div class="subpanel">
         <h3>Campaigns</h3>
         <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
@@ -296,13 +296,13 @@
       <h2>Devices</h2>
       <p class="sub">Operating systems.</p>
       <div class="bars" data-bars="systems"></div>
-      <p class="note"><strong>62% of visits are mobile</strong> (iOS + Android) &mdash; the map is mostly being used on phones, which is why the home-screen install matters.</p>
+      <p class="note"><strong><span data-stat="mobilePct">62%</span> of visits are mobile</strong> (iOS + Android) &mdash; the map is mostly being used on phones, which is why the home-screen install matters.</p>
     </div>
     <div class="card">
       <h2>Browsers</h2>
       <p class="sub">&nbsp;</p>
       <div class="bars" data-bars="browsers"></div>
-      <p class="note">Chrome and Safari cover 96% of visits between them.</p>
+      <p class="note">Chrome and Safari cover <span data-stat="topTwoBrowserPct">96%</span> of visits between them.</p>
     </div>
   </section>
 
@@ -312,8 +312,8 @@
       <p class="sub">The three core actions, as unique daily users of each.</p>
       <div class="bars" data-bars="actions"></div>
       <div class="meter-wrap">
-        <div class="meter-label"><span>Geolocation success rate</span><b>71%</b> &middot; 39 of 55</div>
-        <div class="meter"><div class="fill" style="width:71%"></div></div>
+        <div class="meter-label"><span>Geolocation success rate</span><span><b><span data-stat="geoPct">71%</span></b> &middot; <span data-stat="geoSuccess">39</span> of <span data-stat="geoAttempts">55</span></span></div>
+        <div class="meter"><div class="fill" id="geoFill" style="width:71%"></div></div>
       </div>
     </div>
     <div class="card">
@@ -325,7 +325,7 @@
   </section>
 
   <footer>
-    Source: GoatCounter (districtry.goatcounter.com), read-only dashboard export on August 30, 2026.
+    Source: GoatCounter (districtry.goatcounter.com), read-only dashboard export on <span data-stat="exportDate">August 30, 2026</span>.
     Every app on the domain &mdash; Illinois, Wisconsin, New York, San Francisco and Iowa &mdash; reports to this one site; instances are told apart by path.
     This report refreshes daily through September 10 (the fleet's two-month mark), then weekly.
     Tracking is cookieless and identity-free; language collection is disabled by site settings.
@@ -421,10 +421,125 @@
       ["United States", 2184], ["Canada", 23], ["Denmark", 11],
       ["France", 7], ["Germany", 5], ["United Kingdom", 4]
     ],
-    campaigns: [["2026-08", 68]]
+    campaigns: [["2026-08", 68]],
+    /* geolocate-success events; the meter is geoSuccess / Geolocations */
+    geoSuccess: 39,
+    /* the two Illinois SEO pages the narrative tracks, so the sentence
+       cannot claim a figure the path widget has moved past */
+    seo: { police: 18, school: 14 }
   };
 
+  /* The two facts no arithmetic on this page can recover, so they are typed
+     once and used everywhere:
+
+       exportDate — when the dashboard was read.
+       total      — GoatCounter's own js-total-utc for the window. This is
+                    DEDUPLICATED across the period and is NOT the sum of the
+                    daily column (2,257 here): a visitor returning on three
+                    days counts once in this figure and three times in that
+                    sum, which is what the caveat above says. Deriving it from
+                    `daily` looked right, was five too high, and quietly moved
+                    the browser share from 96% to 95% — so it is a stated
+                    input, not a computation.
+
+     EVERYTHING ELSE is computed below from `daily` and `barData`, so a
+     refresh cannot leave a sentence disagreeing with a chart beside it. */
+  var META = { exportDate: "August 30, 2026", year: 2026, total: 2252 };
+
   var fmt = function (n) { return n.toLocaleString("en-US"); };
+
+  /* ---- derived figures -------------------------------------------------
+     Every number that appears in prose is computed here and written into a
+     <span data-stat="…">. They used to be typed by hand, and on each refresh
+     some moved and some did not: one pass left nine sentences disagreeing
+     with the charts beside them — the period length, the referrer
+     denominator, the mobile share, the geolocation rate. A number a human
+     retypes is a number that eventually goes stale silently, which is the
+     whole reason the peak label below is derived too. */
+  var sum = function (rows) { return rows.reduce(function (t, r) { return t + r[1]; }, 0); };
+  var pick = function (rows, name) {
+    for (var i = 0; i < rows.length; i++) if (rows[i][0] === name) return rows[i][1];
+    return 0;
+  };
+  var pct = function (a, b) { return b ? Math.round(a / b * 100) + "%" : "—"; };
+  var MONTHS = { Jan: "January", Feb: "February", Mar: "March", Apr: "April",
+                 May: "May", Jun: "June", Jul: "July", Aug: "August",
+                 Sep: "September", Oct: "October", Nov: "November", Dec: "December" };
+  var longMonth = function (label) {
+    var bits = label.split(" ");
+    return (MONTHS[bits[0]] || bits[0]) + " " + bits[1];
+  };
+
+  var pageviews = daily.reduce(function (t, d) { return t + d[1]; }, 0);
+  var total     = META.total;
+  var peakDay   = daily.reduce(function (b, d) { return (d[1] + d[2]) > (b[1] + b[2]) ? d : b; }, daily[0]);
+  var geoTry    = pick(barData.actions, "Geolocations");
+  var geoOk     = barData.geoSuccess || 0;
+  var mobile    = pick(barData.systems, "iOS") + pick(barData.systems, "Android");
+  var browsers2 = barData.browsers.slice(0, 2).reduce(function (t, r) { return t + r[1]; }, 0);
+  var search    = ["Google", "DuckDuckGo", "Bing"].reduce(
+                    function (t, n) { return t + pick(barData.refs, n); }, 0);
+  var instTotal = sum(barData.instances);
+  var REBRAND = "Aug 24";
+  var afterRebrand = daily.slice(daily.map(function (d) { return d[0]; }).indexOf(REBRAND) + 1);
+  var bestSince = (afterRebrand.length ? afterRebrand : daily).reduce(
+    function (b, d) { return (d[1] + d[2]) > (b[1] + b[2]) ? d : b; },
+    (afterRebrand.length ? afterRebrand : daily)[0]);
+
+  var STATS = {
+    range: longMonth(daily[0][0]) + " – " + longMonth(daily[daily.length - 1][0]) +
+           ", " + META.year,
+    days: daily.length,
+    total: fmt(total),
+    pageviews: fmt(pageviews),
+    perDay: Math.round(pageviews / daily.length),
+    peak: fmt(peakDay[1] + peakDay[2]),
+    usPct: pct(barData.geo[0][1], total),
+    usCount: fmt(barData.geo[0][1]),
+    instSum: fmt(instTotal),
+    otherInst: fmt(instTotal - barData.instances[0][1] - pick(barData.instances, "Fleet landing")),
+    topInst: fmt(barData.instances[0][1]),
+    searchVisits: fmt(search),
+    mobilePct: pct(mobile, total),
+    topTwoBrowserPct: pct(browsers2, total),
+    geoPct: pct(geoOk, geoTry),
+    geoSuccess: fmt(geoOk),
+    geoAttempts: fmt(geoTry),
+    exportDate: META.exportDate,
+    lastDay: longMonth(daily[daily.length - 1][0]),
+    /* The narrative's "steady band" claim names the last four days. Typed by
+       hand it was the first thing to rot — this run it still read 65/93/66
+       with the fourth day missing entirely. */
+    recentDays: daily.slice(-4).map(function (d) { return d[1] + d[2]; })
+                  .reduce(function (acc, v, i, a) {
+                    return acc + (i === 0 ? "" : i === a.length - 1 ? " and " : ", ") + v;
+                  }, ""),
+    seoPolice: fmt(barData.seo.police),
+    seoSchool: fmt(barData.seo.school),
+    ref3: (barData.refs[2] || ["—"])[0],
+    ref4: (barData.refs[3] || ["—"])[0],
+    /* "strongest day since the rebrand" — the rebrand day itself is the
+       all-time peak, so this is the best of the days AFTER it. Left as a
+       literal it would have quietly outlived the first day that beat it. */
+    bestSinceDay: longMonth(bestSince[0]),
+    bestSince: fmt(bestSince[1] + bestSince[2])
+  };
+
+  /* A span naming a key that does not exist would otherwise render its stale
+     hand-typed fallback and look correct. Make that loud instead. */
+  Array.prototype.forEach.call(document.querySelectorAll("[data-stat]"), function (el) {
+    var k = el.getAttribute("data-stat");
+    if (!Object.prototype.hasOwnProperty.call(STATS, k)) {
+      el.textContent = "[no stat: " + k + "]";
+      el.style.background = "#ffd0d0";
+      el.style.color = "#900";
+      return;
+    }
+    el.textContent = String(STATS[k]);
+  });
+
+  var geoFill = document.getElementById("geoFill");
+  if (geoFill) geoFill.style.width = STATS.geoPct;
 
   /* ---- horizontal bar groups ---- */
   var groups = document.querySelectorAll("[data-bars]");
@@ -467,7 +582,9 @@
   var box = document.getElementById("dailyChart");
   var W = 900, H = 250, padL = 34, padR = 6, padT = 10, padB = 26;
   var plotW = W - padL - padR, plotH = H - padT - padB;
-  var yMax = 150; /* clean ticks above the 133 peak */
+  /* Next clean 50 above the peak — derived, so a new high cannot overflow
+     the plot and a quiet month cannot leave the chart squashed flat. */
+  var yMax = Math.max(50, Math.ceil((peakDay[1] + peakDay[2]) * 1.12 / 50) * 50);
   var n = daily.length;
   var band = plotW / n;
   var colW = Math.min(20, band - 4);
@@ -478,7 +595,7 @@
   var svg = document.createElementNS(svgNS, "svg");
   svg.setAttribute("viewBox", "0 0 " + W + " " + H);
   svg.setAttribute("role", "img");
-  svg.setAttribute("aria-label", "Stacked daily column chart of page visits and feature interactions, July 10 to August 29 2026");
+  svg.setAttribute("aria-label", "Stacked daily column chart of page visits and feature interactions, " + STATS.range);
 
   function el(tag, attrs) {
     var e = document.createElementNS(svgNS, tag);
@@ -488,7 +605,9 @@
   function y(v) { return padT + plotH * (1 - v / yMax); }
 
   /* gridlines + y ticks */
-  [0, 50, 100, 150].forEach(function (t) {
+  var ticks = [];
+  for (var tv = 0; tv <= yMax; tv += 50) ticks.push(tv);
+  ticks.forEach(function (t) {
     var yy = y(t);
     svg.appendChild(el("line", {
       x1: padL, x2: W - padR, y1: yy, y2: yy,
