@@ -249,7 +249,7 @@
 
   <section class="card">
     <h2>Daily activity</h2>
-    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at <span data-stat="peak">133</span>. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed. Since then the fleet has settled into a steady band rather than a spike: <span data-stat="recentDays">65, 93, 66 and 72</span> on the four days to <span data-stat="lastDay">August 29</span>, every one of them above the pre-rebrand average. The Illinois SEO pages keep compounding — <code>/il/police-district.html</code> is at <span data-stat="seoPolice">18</span> visits and <code>/il/school-board.html</code> at <span data-stat="seoSchool">14</span> — and <span data-stat="bestSinceDay">August 27</span> remains the strongest day since the rebrand at <span data-stat="bestSince">93</span>.</p>
+    <p class="sub">Every visitor who lands on the site (blue) plus every feature they use — point selections, searches, layer toggles (orange). August 24 &mdash; the day the rebrand and the fleet reorganisation shipped &mdash; is the single busiest day on record, at <span data-stat="peak">133</span>. <strong>August 25 is not a slump.</strong> Google Safe Browsing flagged the day-old districtry.com domain that morning, and Chrome shows its warning <em>before</em> the page loads, so blocked visits never reached the counter at all. The flag was a false positive and has since been cleared; the day is under-counted by an unknown amount and cannot be reconstructed. Since then it has settled into a band rather than a spike: <span data-stat="recentDays">93, 66, 72 and 30</span> on the four days to <span data-stat="lastDay">August 30</span>, against a pre-rebrand average of <span data-stat="preAvg">39</span>. <span data-stat="bandNote">The last of those is a Sunday, the quietest weekday here and the first day since the rebrand to fall below that average.</span> The Illinois SEO pages keep compounding — <code>/il/police-district.html</code> is at <span data-stat="seoPolice">18</span> visits and <code>/il/school-board.html</code> at <span data-stat="seoSchool">14</span> — and <span data-stat="bestSinceDay">August 27</span> remains the strongest day since the rebrand at <span data-stat="bestSince">93</span>.</p>
     <div class="legend">
       <span class="key"><span class="swatch" style="background:var(--s1)"></span>Page visits</span>
       <span class="key"><span class="swatch" style="background:var(--s2)"></span>Feature interactions</span>
@@ -337,7 +337,7 @@
 (function () {
   "use strict";
 
-  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-08-29) ---- */
+  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-08-30) ---- */
   var daily = [
     ["Jul 10", 22, 20],
     ["Jul 11", 28, 46],
@@ -389,36 +389,37 @@
     ["Aug 26", 41, 24],
     ["Aug 27", 62, 31],
     ["Aug 28", 41, 25],
-    ["Aug 29", 30, 42]
+    ["Aug 29", 30, 42],
+    ["Aug 30", 13, 17]
   ];
 
   var barData = {
     instances: [
-      ["Illinois", 699], ["Fleet landing", 120], ["Wisconsin", 12],
+      ["Illinois", 707], ["Fleet landing", 125], ["Wisconsin", 12],
       ["New York", 6], ["San Francisco", 2], ["Iowa", 1]
     ],
     layers: [
-      ["Ward", 138], ["School board", 74], ["Congress", 72],
+      ["Ward", 142], ["School board", 77], ["Congress", 72],
       ["IL House", 62], ["IL Senate", 55], ["Ward precinct", 38],
-      ["County board", 37], ["Police district", 34], ["Police council", 33],
+      ["County board", 37], ["Police district", 36], ["Police council", 33],
       ["School district", 23]
     ],
     refs: [
-      ["Direct / unknown", 1262], ["Google", 288], ["Bluesky", 106],
+      ["Direct / unknown", 1275], ["Google", 289], ["Bluesky", 106],
       ["LinkedIn", 77], ["DuckDuckGo", 59], ["Bing", 51]
     ],
     systems: [
-      ["iOS", 745], ["Android", 647], ["Windows", 520], ["macOS", 302], ["Linux", 38]
+      ["iOS", 770], ["Android", 653], ["Windows", 521], ["macOS", 302], ["Linux", 40]
     ],
     browsers: [
-      ["Chrome", 1345], ["Safari", 807], ["Firefox", 84],
+      ["Chrome", 1354], ["Safari", 832], ["Firefox", 84],
       ["Edge", 14]
     ],
     actions: [
-      ["Point selects", 234], ["Address searches", 176], ["Geolocations", 55]
+      ["Point selects", 241], ["Address searches", 176], ["Geolocations", 56]
     ],
     geo: [
-      ["United States", 2184], ["Canada", 23], ["Denmark", 11],
+      ["United States", 2216], ["Canada", 24], ["Denmark", 11],
       ["France", 7], ["Germany", 5], ["United Kingdom", 4]
     ],
     campaigns: [["2026-08", 68]],
@@ -444,7 +445,7 @@
 
      EVERYTHING ELSE is computed below from `daily` and `barData`, so a
      refresh cannot leave a sentence disagreeing with a chart beside it. */
-  var META = { exportDate: "August 30, 2026", year: 2026, total: 2252 };
+  var META = { exportDate: "August 31, 2026", year: 2026, total: 2286 };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
 
@@ -481,6 +482,14 @@
                     function (t, n) { return t + pick(barData.refs, n); }, 0);
   var instTotal = sum(barData.instances);
   var REBRAND = "Aug 24";
+  var preRebrand = daily.slice(0, daily.map(function (d) { return d[0]; }).indexOf(REBRAND));
+  var preAvgN = preRebrand.reduce(function (t, d) { return t + d[1] + d[2]; }, 0) /
+                (preRebrand.length || 1);
+  var recent = daily.slice(-4);
+  var weekday = function (label) {
+    var d = new Date(label + ", " + META.year);
+    return isNaN(d) ? "" : d.toLocaleDateString("en-US", { weekday: "long" });
+  };
   var afterRebrand = daily.slice(daily.map(function (d) { return d[0]; }).indexOf(REBRAND) + 1);
   var bestSince = (afterRebrand.length ? afterRebrand : daily).reduce(
     function (b, d) { return (d[1] + d[2]) > (b[1] + b[2]) ? d : b; },
@@ -522,7 +531,23 @@
        all-time peak, so this is the best of the days AFTER it. Left as a
        literal it would have quietly outlived the first day that beat it. */
     bestSinceDay: longMonth(bestSince[0]),
-    bestSince: fmt(bestSince[1] + bestSince[2])
+    bestSince: fmt(bestSince[1] + bestSince[2]),
+    preAvg: fmt(Math.round(preRebrand.reduce(function (t, d) { return t + d[1] + d[2]; }, 0) /
+                           (preRebrand.length || 1))),
+    /* The band sentence used to end "every one of them above the pre-rebrand
+       average", which was true when typed and false eight days later: Aug 30
+       came in under it. A CLAIM ABOUT NUMBERS GOES STALE EVEN WHEN THE NUMBERS
+       BESIDE IT DO NOT, so the claim is computed from the same days it
+       describes rather than asserted once and left. */
+    bandNote: (function () {
+      var below = recent.filter(function (d) { return d[1] + d[2] < preAvgN; });
+      if (!below.length) return "Every one of them is above that average.";
+      if (below.length === recent.length) return "All four sit below it.";
+      var names = below.map(function (d) { return longMonth(d[0]) + " (" + weekday(d[0]) + ")"; });
+      return (below.length === 1
+        ? names[0] + " is the only one below it"
+        : names.join(" and ") + " are below it") + ".";
+    })()
   };
 
   /* A span naming a key that does not exist would otherwise render its stale
