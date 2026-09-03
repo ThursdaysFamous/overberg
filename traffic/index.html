@@ -268,7 +268,7 @@
     <h2>By instance</h2>
     <p class="sub">Page visits split by path prefix &mdash; which app in the fleet people actually opened.</p>
     <div class="bars" data-bars="instances"></div>
-    <p class="note"><strong>Six bars: five apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">These six sum to <span data-stat="instSum">958</span> of <span data-stat="pageviews">958</span> page visits: each instance is counted from its own path query rather than from one shared top-ten list, which used to drop an instance's sub-pages once that list filled.</span> of the <span data-stat="pageviews">841</span> page visits; the last two sit in paths below that cut.</span></p>
+    <p class="note"><strong>Six bars: five apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">These six sum to <span data-stat="instSum">958</span> of <span data-stat="pageviews">958</span> page visits: each instance is counted from its own path query rather than from one shared top-ten list, which used to drop an instance's sub-pages once that list filled.</span></p>
   </section>
 
   <section class="grid2">
@@ -282,7 +282,7 @@
       <h2>How readers arrive</h2>
       <p class="sub">Top referrers across all <span data-stat="total">2,252</span> visits.</p>
       <div class="bars" data-bars="refs"></div>
-      <p class="note"><strong><span data-stat="ref3">Bluesky</span></strong> holds the #3 source spot and <strong><span data-stat="ref4">LinkedIn</span></strong> the #4. Search engines together (Google, DuckDuckGo, Bing) account for <span data-stat="searchVisits">398</span> visits.</p>
+      <p class="note"><strong><span data-stat="ref3">Bluesky</span></strong> holds the #3 source spot and <strong><span data-stat="ref4">LinkedIn</span></strong> the #4. Search engines together (Google, DuckDuckGo, Bing) account for <span data-stat="searchVisits">398</span> visits. <span class="muted-note">This is a top-six list &mdash; GoatCounter's dashboard shows a &ldquo;Show more&rdquo; beyond it that this page cannot query into. The six sum to <span data-stat="refSum">1,950</span> of <span data-stat="total">2,252</span> visits, so a named search engine's true total could run higher than what is shown here.</span></p>
       <div class="subpanel">
         <h3>Campaigns</h3>
         <p class="sub">Visits from links tagged with <code>?utm_campaign=&hellip;</code> &mdash; <code>utm_source</code> tags count in the referrer list above.</p>
@@ -486,6 +486,7 @@
   var browsers2 = barData.browsers.slice(0, 2).reduce(function (t, r) { return t + r[1]; }, 0);
   var search    = ["Google", "DuckDuckGo", "Bing"].reduce(
                     function (t, n) { return t + pick(barData.refs, n); }, 0);
+  var refSum    = sum(barData.refs);
   var instTotal = sum(barData.instances);
   var REBRAND = "Aug 24";
   var preRebrand = daily.slice(0, daily.map(function (d) { return d[0]; }).indexOf(REBRAND));
@@ -515,6 +516,7 @@
     otherInst: fmt(instTotal - barData.instances[0][1] - pick(barData.instances, "Fleet landing")),
     topInst: fmt(barData.instances[0][1]),
     searchVisits: fmt(search),
+    refSum: fmt(refSum),
     mobilePct: pct(mobile, total),
     topTwoBrowserPct: pct(browsers2, total),
     geoPct: pct(geoOk, geoTry),
