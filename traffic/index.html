@@ -337,7 +337,7 @@
 (function () {
   "use strict";
 
-  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-09-05) ---- */
+  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-09-06) ---- */
   var daily = [
     ["Jul 10", 22, 20],
     ["Jul 11", 28, 46],
@@ -396,47 +396,48 @@
     ["Sep 2", 33, 26],
     ["Sep 3", 50, 54],
     ["Sep 4", 36, 73],
-    ["Sep 5", 36, 46]
+    ["Sep 5", 36, 46],
+    ["Sep 6", 40, 27]
   ];
 
   var barData = {
     instances: [
-      ["Illinois", 809], ["Fleet landing", 198], ["Wisconsin", 37],
-      ["New York", 21], ["Iowa", 9], ["San Francisco", 5]
+      ["Illinois", 829], ["Fleet landing", 207], ["Wisconsin", 46],
+      ["New York", 23], ["Iowa", 9], ["San Francisco", 5]
     ],
     layers: [
-      ["Ward", 156], ["School board", 88], ["Congress", 84],
+      ["Ward", 159], ["School board", 90], ["Congress", 85],
       ["IL House", 78], ["IL Senate", 64], ["County board", 46],
-      ["Ward precinct", 42], ["Police district", 41], ["Police council", 39],
-      ["School district", 29]
+      ["Ward precinct", 42], ["Police district", 41], ["Police council", 40],
+      ["School district", 30]
     ],
     refs: [
-      ["Direct / unknown", 1386], ["Google", 301], ["Bluesky", 114],
-      ["LinkedIn", 101], ["DuckDuckGo", 81], ["Bing", 75]
+      ["Direct / unknown", 1406], ["Google", 302], ["Bluesky", 114],
+      ["LinkedIn", 109], ["DuckDuckGo", 81], ["Bing", 76]
     ],
     systems: [
-      ["iOS", 926], ["Android", 779], ["Windows", 633], ["macOS", 344], ["Linux", 52],
+      ["iOS", 944], ["Android", 797], ["Windows", 634], ["macOS", 368], ["Linux", 52],
       ["Chrome OS", 4]
     ],
     browsers: [
-      ["Chrome", 1612], ["Safari", 996], ["Firefox", 114],
+      ["Chrome", 1630], ["Safari", 1038], ["Firefox", 115],
       ["Edge", 14]
     ],
     actions: [
-      ["Point selects", 307], ["Address searches", 205], ["Geolocations", 65]
+      ["Point selects", 312], ["Address searches", 209], ["Geolocations", 66]
     ],
     geo: [
-      ["United States", 2663], ["Canada", 25], ["Denmark", 11],
+      ["United States", 2724], ["Canada", 25], ["Denmark", 11],
       ["France", 7], ["Germany", 5], ["United Kingdom", 4]
     ],
     campaigns: [
-      ["2026-08", 68], ["districtry-launch", 16]
+      ["2026-08", 68], ["districtry-launch", 30]
     ],
     /* geolocate-success events; the meter is geoSuccess / Geolocations */
     geoSuccess: 45,
     /* the two Illinois SEO pages the narrative tracks, so the sentence
        cannot claim a figure the path widget has moved past */
-    seo: { police: 22, school: 24 }
+    seo: { police: 22, school: 34 }
   };
 
   /* The two facts no arithmetic on this page can recover, so they are typed
@@ -454,7 +455,7 @@
 
      EVERYTHING ELSE is computed below from `daily` and `barData`, so a
      refresh cannot leave a sentence disagreeing with a chart beside it. */
-  var META = { exportDate: "September 6, 2026", year: 2026, total: 2738 };
+  var META = { exportDate: "September 7, 2026", year: 2026, total: 2799 };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
 
