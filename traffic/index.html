@@ -268,7 +268,7 @@
     <h2>By instance</h2>
     <p class="sub">Page visits split by path prefix &mdash; which app in the fleet people actually opened.</p>
     <div class="bars" data-bars="instances"></div>
-    <p class="note"><strong>Six bars: five apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">These six sum to <span data-stat="instSum">958</span> of <span data-stat="pageviews">958</span> page visits: each instance is counted from its own path query rather than from one shared top-ten list, which used to drop an instance's sub-pages once that list filled.</span></p>
+    <p class="note"><strong><span data-stat="barCount">Six</span> bars: <span data-stat="appCount">five</span> apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">These six sum to <span data-stat="instSum">958</span> of <span data-stat="pageviews">958</span> page visits: each instance is counted from its own path query rather than from one shared top-ten list, which used to drop an instance's sub-pages once that list filled.</span></p>
   </section>
 
   <section class="grid2">
@@ -276,7 +276,7 @@
       <h2>Most-toggled layers</h2>
       <p class="sub">Which district layers people actually reach for. Top 10 of those recorded.</p>
       <div class="bars" data-bars="layers"></div>
-      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window the blending is still negligible &mdash; the other five instances have <span data-stat="otherInst">21</span> page visits between them against Illinois's <span data-stat="topInst">699</span> &mdash; so these counts are effectively all Illinois. That stops being true as the others grow.</p>
+      <p class="note">The classic Chicago question wins: <strong>ward</strong> toggles nearly double the runner-up, with state and federal legislative layers close behind. <strong>One caveat on these ids:</strong> events share a single namespace across the fleet, so a layer that exists in more than one city (<code>congress</code>) would <em>sum</em> across them, while city-specific ids (<code>ward</code> = Illinois, <code>council</code> = New York, <code>supervisor-district</code> = San Francisco) are unambiguous. In this window the blending is still negligible &mdash; the other <span data-stat="otherCount">five</span> instances have <span data-stat="otherInst">21</span> page visits between them against Illinois's <span data-stat="topInst">699</span> &mdash; so these counts are effectively all Illinois. That stops being true as the others grow.</p>
     </div>
     <div class="card">
       <h2>How readers arrive</h2>
@@ -337,7 +337,7 @@
 (function () {
   "use strict";
 
-  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-09-06) ---- */
+  /* ---- data (GoatCounter, districtry.goatcounter.com, 2026-07-10 → 2026-09-07) ---- */
   var daily = [
     ["Jul 10", 22, 20],
     ["Jul 11", 28, 46],
@@ -397,47 +397,49 @@
     ["Sep 3", 50, 54],
     ["Sep 4", 36, 73],
     ["Sep 5", 36, 46],
-    ["Sep 6", 40, 27]
+    ["Sep 6", 40, 27],
+    ["Sep 7", 34, 20]
   ];
 
   var barData = {
     instances: [
-      ["Illinois", 829], ["Fleet landing", 207], ["Wisconsin", 46],
-      ["New York", 23], ["Iowa", 9], ["San Francisco", 5]
+      ["Illinois", 839], ["Fleet landing", 214], ["Wisconsin", 60],
+      ["New York", 26], ["Iowa", 9], ["San Francisco", 5],
+      ["Michigan", 1]
     ],
     layers: [
-      ["Ward", 159], ["School board", 90], ["Congress", 85],
+      ["Ward", 160], ["School board", 92], ["Congress", 85],
       ["IL House", 78], ["IL Senate", 64], ["County board", 46],
       ["Ward precinct", 42], ["Police district", 41], ["Police council", 40],
-      ["School district", 30]
+      ["School district", 31]
     ],
     refs: [
-      ["Direct / unknown", 1406], ["Google", 302], ["Bluesky", 114],
-      ["LinkedIn", 109], ["DuckDuckGo", 81], ["Bing", 76]
+      ["Direct / unknown", 1411], ["Google", 305], ["LinkedIn", 123],
+      ["Bluesky", 114], ["DuckDuckGo", 86], ["Bing", 81]
     ],
     systems: [
-      ["iOS", 944], ["Android", 797], ["Windows", 634], ["macOS", 368], ["Linux", 52],
+      ["iOS", 999], ["Android", 802], ["Windows", 650], ["macOS", 382], ["Linux", 53],
       ["Chrome OS", 4]
     ],
     browsers: [
-      ["Chrome", 1630], ["Safari", 1038], ["Firefox", 115],
-      ["Edge", 14]
+      ["Chrome", 1660], ["Safari", 1092], ["Firefox", 121],
+      ["Edge", 14], ["(unknown)", 2]
     ],
     actions: [
-      ["Point selects", 312], ["Address searches", 209], ["Geolocations", 66]
+      ["Point selects", 317], ["Address searches", 212], ["Geolocations", 67]
     ],
     geo: [
-      ["United States", 2724], ["Canada", 25], ["Denmark", 11],
-      ["France", 7], ["Germany", 5], ["United Kingdom", 4]
+      ["United States", 2813], ["Canada", 25], ["Denmark", 11],
+      ["France", 7], ["Germany", 5], ["United Kingdom", 5]
     ],
     campaigns: [
-      ["2026-08", 68], ["districtry-launch", 30]
+      ["2026-08", 68], ["districtry-launch", 44]
     ],
     /* geolocate-success events; the meter is geoSuccess / Geolocations */
-    geoSuccess: 45,
+    geoSuccess: 46,
     /* the two Illinois SEO pages the narrative tracks, so the sentence
        cannot claim a figure the path widget has moved past */
-    seo: { police: 22, school: 34 }
+    seo: { police: 22, school: 37 }
   };
 
   /* The two facts no arithmetic on this page can recover, so they are typed
@@ -455,7 +457,7 @@
 
      EVERYTHING ELSE is computed below from `daily` and `barData`, so a
      refresh cannot leave a sentence disagreeing with a chart beside it. */
-  var META = { exportDate: "September 7, 2026", year: 2026, total: 2799 };
+  var META = { exportDate: "September 8, 2026", year: 2026, total: 2890 };
 
   var fmt = function (n) { return n.toLocaleString("en-US"); };
 
@@ -491,6 +493,14 @@
   var search    = ["Google", "DuckDuckGo", "Bing"].reduce(
                     function (t, n) { return t + pick(barData.refs, n); }, 0);
   var refSum    = sum(barData.refs);
+  var WORDS = ["zero", "one", "two", "three", "four", "five", "six", "seven",
+               "eight", "nine", "ten", "eleven", "twelve"];
+  /* Only barCount opens its sentence; the other two sit mid-sentence, so
+     capitalising unconditionally gave "the other Five instances". */
+  var words = function (n, capitalise) {
+    var w = WORDS[n] || String(n);
+    return capitalise ? w.charAt(0).toUpperCase() + w.slice(1) : w;
+  };
   var instTotal = sum(barData.instances);
   var REBRAND = "Aug 24";
   var preRebrand = daily.slice(0, daily.map(function (d) { return d[0]; }).indexOf(REBRAND));
@@ -521,6 +531,13 @@
     topInst: fmt(barData.instances[0][1]),
     searchVisits: fmt(search),
     refSum: fmt(refSum),
+    /* The bar-count sentence was typed "Six bars: five apps" and went wrong the
+       day Michigan shipped -- the same literal-next-to-a-measurement failure as
+       everywhere else on this page, and the instance list it describes is now
+       read from the fleet manifest, so the sentence has to be too. */
+    barCount: words(barData.instances.length, true),
+    appCount: words(barData.instances.length - 1),
+    otherCount: words(barData.instances.length - 2),
     mobilePct: pct(mobile, total),
     topTwoBrowserPct: pct(browsers2, total),
     geoPct: pct(geoOk, geoTry),
