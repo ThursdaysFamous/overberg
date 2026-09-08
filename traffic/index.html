@@ -271,6 +271,34 @@
     <p class="note"><strong><span data-stat="barCount">Six</span> bars: <span data-stat="appCount">five</span> apps and the fleet landing page.</strong> Iowa joined the fleet manifest at 01:24&nbsp;UTC on 28&nbsp;August, so it is listed on the landing page now &mdash; for most of this window it was live and in the sitemap but unlisted, which is how it drew a visit from a page that did not offer it. Read the ranking as age, not quality: until <strong>August 24</strong> the non-Illinois tags pointed at GoatCounter sites that did not exist and every one of their visits was dropped, unrecoverable. Illinois has seven weeks of history; the rest have days. <span class="muted-note">These six sum to <span data-stat="instSum">958</span> of <span data-stat="pageviews">958</span> page visits: each instance is counted from its own path query rather than from one shared top-ten list, which used to drop an instance's sub-pages once that list filled.</span></p>
   </section>
 
+  <section class="card" id="searchCard" hidden>
+    <h2>What people search for</h2>
+    <p class="sub">Google Search Console — the step <em>before</em> a visit. Ranked by
+      impressions, which is where the signal is: <span data-stat="searchClicks">120</span> clicks
+      against <span data-stat="searchImpressions">5,200</span> impressions across
+      <span data-stat="searchQueries">699</span> distinct searches, so ranking by clicks would
+      return one real row and then ties.</p>
+    <div class="tscroll"><table id="searchTable">
+      <thead><tr><th>Search</th><th class="num">Impressions</th><th class="num">Clicks</th>
+        <th class="num">CTR</th><th class="num">Position</th></tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <p class="note">This is the one thing the visit counter cannot see: Google strips the query
+      from the referrer, so every one of these arrives in the chart above as an anonymous
+      &ldquo;Google&rdquo;. <strong>The pattern is high visibility and low clickthrough</strong> —
+      overall <span data-stat="searchCtr">2.31%</span>, and the single most-seen search,
+      <span data-stat="searchTopQuery">find my district</span>, converts at
+      <span data-stat="searchTopCtr">0.7%</span> from an average position of
+      <span data-stat="searchTopPos">7.4</span>. A position of seven is not a ranking problem;
+      being seen and not chosen is a title-and-description one.
+      <span class="muted-note">Two caveats, both structural. Counts combine
+      <span data-stat="searchProps">2</span> Search Console properties, because the site renamed
+      mid-window and the old domain still appears in results and redirects across — those are two
+      different results for one search, not one counted twice. And Google withholds rare queries
+      before anyone sees them, so these will not reconcile exactly with the totals in Search
+      Console's own reports.</span></p>
+  </section>
+
   <section class="grid2">
     <div class="card">
       <h2>Most-toggled layers</h2>
@@ -400,6 +428,8 @@
     ["Sep 6", 40, 27],
     ["Sep 7", 34, 20]
   ];
+
+  var searchData = {"clicks":120,"impressions":5200,"queries":699,"top":[{"q":"find my district","clicks":2,"impressions":303,"position":7.4},{"q":"what district am i in","clicks":11,"impressions":229,"position":7.6},{"q":"my district","clicks":0,"impressions":122,"position":11.5},{"q":"find my district chicago","clicks":0,"impressions":117,"position":8.0},{"q":"district","clicks":0,"impressions":66,"position":10.1},{"q":"what school district am i in","clicks":0,"impressions":49,"position":8.5},{"q":"what is my district","clicks":0,"impressions":34,"position":8.6},{"q":"find my precinct","clicks":0,"impressions":31,"position":8.5},{"q":"chicago district map","clicks":0,"impressions":29,"position":16.0},{"q":"what district am i in chicago","clicks":0,"impressions":28,"position":13.1},{"q":"what chicago district am i in","clicks":0,"impressions":26,"position":9.8},{"q":"which chicago school board district am i in?","clicks":0,"impressions":22,"position":3.0}],"properties":2,"first":"2026-07-12","last":"2026-09-06"};   /* replaced by the builder when GSC data exists */
 
   var barData = {
     instances: [
@@ -531,6 +561,17 @@
     topInst: fmt(barData.instances[0][1]),
     searchVisits: fmt(search),
     refSum: fmt(refSum),
+    searchClicks: searchData ? fmt(searchData.clicks) : "0",
+    searchImpressions: searchData ? fmt(searchData.impressions) : "0",
+    searchQueries: searchData ? fmt(searchData.queries) : "0",
+    searchProps: searchData ? String(searchData.properties) : "0",
+    searchCtr: searchData && searchData.impressions
+      ? (searchData.clicks / searchData.impressions * 100).toFixed(2) + "%" : "—",
+    searchTopQuery: searchData && searchData.top.length ? searchData.top[0].q : "—",
+    searchTopCtr: searchData && searchData.top.length && searchData.top[0].impressions
+      ? (searchData.top[0].clicks / searchData.top[0].impressions * 100).toFixed(1) + "%" : "—",
+    searchTopPos: searchData && searchData.top.length
+      ? searchData.top[0].position.toFixed(1) : "—",
     /* The bar-count sentence was typed "Six bars: five apps" and went wrong the
        day Michigan shipped -- the same literal-next-to-a-measurement failure as
        everywhere else on this page, and the instance list it describes is now
@@ -632,6 +673,29 @@
     });
   });
 
+  /* ---- search queries (Search Console) ----
+     The whole card is hidden unless the data file was present: a search panel
+     drawn with zeroes reads as "nobody searches for this", which is the
+     opposite of what a missing file means. */
+  if (searchData && searchData.top && searchData.top.length) {
+    var sc = document.getElementById("searchCard");
+    var stb = document.querySelector("#searchTable tbody");
+    searchData.top.forEach(function (r) {
+      var tr = document.createElement("tr");
+      var ctr = r.impressions ? (r.clicks / r.impressions * 100) : 0;
+      [[r.q, false], [fmt(r.impressions), true], [fmt(r.clicks), true],
+       [ctr.toFixed(1) + "%", true], [r.position.toFixed(1), true]
+      ].forEach(function (cell) {
+        var td = document.createElement("td");
+        if (cell[1]) td.className = "num";
+        td.textContent = cell[0];
+        tr.appendChild(td);
+      });
+      stb.appendChild(tr);
+    });
+    sc.hidden = false;
+  }
+
   /* ---- daily stacked column chart ---- */
   var box = document.getElementById("dailyChart");
   var W = 900, H = 250, padL = 34, padR = 6, padT = 10, padB = 26;
@@ -676,9 +740,17 @@
   });
 
   /* x labels: weekly */
+  /* How many DAYS of separation a label needs, derived from how wide the band
+     actually is rather than fixed at a constant. A "3" was hardcoded here and
+     was right for a short series; at 60 days the band is ~14px, "Sep 4" landed
+     exactly 3 days from the end, survived the guard and sat 2.9px from
+     "Sep 7". The band narrows as the window grows, so the day count that
+     clears a ~46px label has to grow with it. */
+  var labelDays = Math.max(1, Math.ceil(46 / band));
+
   daily.forEach(function (d, i) {
-    /* weekly ticks + the final day; drop a weekly tick that would crowd the final label */
-    if (i !== n - 1 && (i % 7 !== 0 || n - 1 - i < 3)) return;
+    /* weekly ticks + the final day; drop a weekly tick that would crowd it */
+    if (i !== n - 1 && (i % 7 !== 0 || n - 1 - i < labelDays)) return;
     var last = i === n - 1;
     var lab = el("text", {
       x: last ? W - padR : padL + band * i + band / 2, y: H - 8,
