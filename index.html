@@ -4,12 +4,12 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Adam Overberg — civic tools &amp; web apps</title>
-<meta name="description" content="Adam Overberg builds civic tools and web apps around Chicago and open government data — including districtry, a civic district lookup tool." />
+<meta name="description" content="Adam Overberg builds civic tools and web apps on open government data, starting in Chicago — including districtry, a civic district lookup tool." />
 <link rel="canonical" href="https://overberg.co/" />
 <meta name="robots" content="index, follow" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Adam Overberg — civic tools & web apps" />
-<meta property="og:description" content="I build civic tools and web apps around Chicago and open government data, including districtry, a civic district lookup tool." />
+<meta property="og:description" content="I build civic tools and web apps on open government data, starting in Chicago, including districtry, a civic district lookup tool." />
 <meta property="og:url" content="https://overberg.co/" />
 <meta property="og:image" content="https://overberg.co/images/social-home.png" />
 <meta property="og:image:width" content="1200" />
@@ -25,21 +25,6 @@
       var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
       document.documentElement.dataset.theme = dark ? 'dark' : 'light';
     } catch (e) { document.documentElement.dataset.theme = 'light'; }
-  })();
-</script>
-<!-- Google tag (gtag.js) — production host only; keeps local dev out of analytics -->
-<script>
-  (function () {
-    if (location.hostname !== 'overberg.co' && location.hostname !== 'www.overberg.co') return;
-    if (window.top !== window.self) return; // top-level only — the cookieless GoatCounter still counts embeds
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9VR0BR81ZN';
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', 'G-9VR0BR81ZN');
   })();
 </script>
 <!-- GoatCounter — cookieless page counts -->
@@ -113,15 +98,15 @@
     <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
     <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
   </button>
-  <a class="btn btn-primary" href="https://districtry.com/il/">Open districtry</a>
+  <a class="btn btn-primary" href="https://districtry.com/">Open districtry</a>
 </nav>
 <div class="wrap">
 
   <section class="hero">
     <h1 class="display"><span class="line">Civic tools for people</span> <span class="line">who live somewhere.</span></h1>
-    <p class="sub">I'm Adam Overberg. I build fast, free web tools on open government data — starting with districtry: click any point on the map and see every civic district that contains it, and exactly who represents you there. No login, no tracking, no fuss.</p>
+    <p class="sub">I'm Adam Overberg. I build fast, free web tools on open government data — starting with districtry: click any point on the map and see every civic district that contains it, and exactly who represents you there. No login, no ads, no fuss.</p>
     <div class="row">
-      <a class="btn btn-primary" href="https://districtry.com/il/">Look yourself up &rarr;</a>
+      <a class="btn btn-primary" href="https://districtry.com/">Look yourself up &rarr;</a>
       <a class="btn btn-ghost" href="#work">See the work</a>
     </div>
   </section>
@@ -130,9 +115,9 @@
 
   <section class="stats" aria-label="By the numbers">
     <div class="grid">
-      <div><p class="stat-num" data-stat="places">4</p><p class="stat-label">Places live — Illinois, Wisconsin, NYC, SF</p></div>
-      <div><p class="stat-num" data-stat="layers.il">39</p><p class="stat-label">District layers, ward to judicial circuit</p></div>
-      <div><p class="stat-num" data-stat="illinois.counties_served">91</p><p class="stat-label">Illinois counties served — and growing</p></div>
+      <div><p class="stat-num" data-stat="places">16</p><p class="stat-label">States and cities live</p></div>
+      <div><p class="stat-num" data-stat="layers.il">41</p><p class="stat-label">District layers in Illinois, ward to judicial circuit</p></div>
+      <div><p class="stat-num" data-stat="illinois.counties_served">97</p><p class="stat-label">Illinois counties served — and growing</p></div>
     </div>
   </section>
 
@@ -142,7 +127,7 @@
     <span class="kicker">Currently building</span>
     <div class="cols">
       <h2>districtry</h2>
-      <p class="muted78">One click, every district: your ward, police district, community area, congressional and state legislative districts, elected school board, CPS zones, and more — with the name of who represents you in each. Started in Chicago as the Chicago District Explorer, it now covers 91 counties across northern and central Illinois, from the Wisconsin line to the Metro East. <a href="https://districtry.com/il/" style="font-weight:600">districtry.com/il &rarr;</a> · <a href="/why/" style="font-weight:600">why it took 102 conversations &rarr;</a></p>
+      <p class="muted78">One click, every district: city council, county board, state legislature, Congress, school board, courts, precincts and more, including tribal governments in several states, with the name of who represents you in each. Type a ZIP code and it shows which wards or districts that ZIP code crosses. It started in Chicago as the Chicago District Explorer. It now answers in <span data-stat="places">16</span> states and cities, and covers <span data-stat="illinois.counties_served">97</span> of Illinois's 102 counties, from the Wisconsin line to Cairo. My goal is all 50 states. Along the way I keep a record of every place where this information is hard to get, and I use it to ask state and county governments to publish it in a form anyone can use. <a href="https://districtry.com/" style="font-weight:600">districtry.com &rarr;</a> · <a href="/why/" style="font-weight:600">why it took 102 conversations &rarr;</a></p>
     </div>
   </section>
 
@@ -150,32 +135,22 @@
     <div class="embed">
       <iframe src="https://districtry.com/il/#point=41.96177,-87.70884&amp;layers=police-district,ward,congress,il-senate,il-house" loading="lazy" title="districtry — Illinois" allow="geolocation" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
-    <p class="embed-note muted70">This is the real thing — click anywhere in the city, or search an address, to see who represents that point.</p>
+    <p class="embed-note muted70">This is the real thing — click anywhere in Illinois, or search an address, to see who represents that point.</p>
+    <p class="embed-note muted70">There's an Android app in testing. If you have an Android phone and want to help, the steps are at <a href="https://districtry.com/android" style="font-weight:600">districtry.com/android</a>.</p>
   </section>
 
   <hr class="rule2" />
 
-  <section class="ports" aria-label="Ports">
-    <span class="kicker">Also live</span>
-    <!-- One card per place BESIDES Illinois, which has its own section above.
-         The count in the stat tile is read from districtry.com/stats.json; these
-         cards are hand-written because each needs its own sentence. If a new
-         place ships, it needs a card here — Wisconsin went live on 2026-08-24
-         and sat unlisted for four days while the tile above already counted it,
-         so the page contradicted itself on one screen. -->
+  <section class="ports" aria-label="Live today">
+    <span class="kicker">Live today</span>
+    <!-- No hand-kept list of places here, on purpose. Wisconsin once sat
+         unlisted for four days while the number above already counted it.
+         districtry.com's own front page lists every live place and is
+         generated from the list the apps run on, so this links there. -->
     <div class="grid">
-      <a class="port" href="https://districtry.com/wi/">
-        <h3>districtry / wi &mdash; Wisconsin &rarr;</h3>
-        <p class="muted78">The same lookup, statewide: county boards, circuit courts, and
-          the wards and aldermanic districts underneath them.</p>
-      </a>
-      <a class="port" href="https://districtry.com/ny/">
-        <h3>districtry / ny &mdash; New York City &rarr;</h3>
-        <p class="muted78">The same lookup, rebuilt for the five boroughs.</p>
-      </a>
-      <a class="port" href="https://districtry.com/ca/">
-        <h3>districtry / ca &mdash; San Francisco &rarr;</h3>
-        <p class="muted78">The same lookup, for the seven-by-seven.</p>
+      <a class="port" href="https://districtry.com/">
+        <h3>Every place districtry answers &rarr;</h3>
+        <p class="muted78">districtry started in Chicago and now answers in <span data-stat="places">16</span> states and cities. Each state has its own map, and the front page at districtry.com lists every one and takes any address to the right map. Missouri is next.</p>
       </a>
     </div>
   </section>
@@ -190,7 +165,7 @@
       <span class="kicker">About</span>
       <h2>Open data, no middleman.</h2>
       <p class="bio muted78">Government publishes the boundaries; I make them answer a question a person actually has. Everything ships as plain, dependency-free web pages — fast to load, easy to trust, built in Chicago.</p>
-      <p class="roadmap"><span class="sq"></span><span data-stat="illinois.counties_served">91</span> Illinois counties and counting — headed for the whole state.</p>
+      <p class="roadmap"><span class="sq"></span><span><span data-stat="places">16</span> places and counting — headed for all 50 states.</span></p>
     </div>
   </section>
 
@@ -200,7 +175,7 @@
   <div class="wrap">
     <h3><span class="line">Somebody represents you.</span> <span class="line">Find out who.</span></h3>
     <div class="row" style="margin-top:42px">
-      <a class="btn btn-ghost" href="https://districtry.com/il/">Open districtry &rarr;</a>
+      <a class="btn btn-ghost" href="https://districtry.com/">Open districtry &rarr;</a>
     </div>
   </div>
 </section>
@@ -211,6 +186,7 @@
     <a href="mailto:hello@overberg.co">hello@overberg.co</a>
     <a href="/why/">Why this exists</a>
     <a href="https://districtry.com/traffic.html">Traffic</a>
+    <a href="https://districtry.com/ai.html">How I use AI</a>
     <a href="https://github.com/ThursdaysFamous">GitHub</a>
     <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
   </footer>

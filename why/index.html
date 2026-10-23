@@ -27,21 +27,6 @@
     } catch (e) { document.documentElement.dataset.theme = 'light'; }
   })();
 </script>
-<!-- Google tag (gtag.js) — production host only; keeps local dev out of analytics -->
-<script>
-  (function () {
-    if (location.hostname !== 'overberg.co' && location.hostname !== 'www.overberg.co') return;
-    if (window.top !== window.self) return; // top-level only — the cookieless GoatCounter still counts embeds
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9VR0BR81ZN';
-    document.head.appendChild(s);
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { dataLayer.push(arguments); };
-    gtag('js', new Date());
-    gtag('config', 'G-9VR0BR81ZN');
-  })();
-</script>
 <!-- GoatCounter — cookieless page counts -->
 <script data-goatcounter="https://overbergco.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="/style.css" />
@@ -57,6 +42,7 @@
     margin: 0 0 21px; max-width: 20ch;
   }
   .section > .intro { font-size: 15.5px; line-height: 28px; margin: 0; max-width: 58ch; }
+  .section > .intro + .intro { margin-top: 21px; }
 
   /* — the format ladder — */
   .ladder { margin-top: clamp(36px, 5vw, 56px); }
@@ -155,7 +141,7 @@
     <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
     <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
   </button>
-  <a class="btn btn-primary" href="https://districtry.com/il/">Open districtry</a>
+  <a class="btn btn-primary" href="https://districtry.com/">Open districtry</a>
 </nav>
 
 <div class="wrap">
@@ -171,7 +157,7 @@
   <section class="lede">
     <p>districtry answers one question: <em>who represents this spot?</em> Click a point, get every civic district that contains it — ward, precinct, county board, fire protection district, judicial subcircuit, elected school board — and the name of the person holding each seat.</p>
     <p>In Chicago that question is nearly easy. The city runs an open data portal, the county runs a GIS service, and the boundaries come back over HTTP in seconds. That version of the project took a weekend.</p>
-    <p>Then it left the city. Every county line the map crosses is a different publisher, a different format, a different answer to the question of whether this is public information at all. Coverage now stands at 91 of Illinois' 102 counties, and almost none of the work was code.</p>
+    <p>Then it left the city. Every county line the map crosses is a different publisher, a different format, a different answer to the question of whether this is public information at all. Coverage now stands at <span data-stat="illinois.counties_served">97</span> of Illinois' 102 counties, and almost none of the work was code.</p>
   </section>
 
   <hr class="rule2" />
@@ -262,14 +248,14 @@
             <p class="rung-format">A licence and a price tag</p>
             <p class="rung-where">Champaign · Piatt · Bureau</p>
           </div>
-          <p class="rung-detail muted78">Champaign and Piatt sit complete and current behind the Champaign County GIS Consortium, which sells the data under a licence that permits viewing and forbids republishing. Bureau County's GIS office quoted its board-district shapefile at $150 — beneath a licence that forbids redistributing anything derived from it. The block is legal, not technical, and no amount of engineering touches it.</p>
+          <p class="rung-detail muted78">Champaign and Piatt sit complete and current behind the Champaign County GIS Consortium, which sells the data under a licence that permits viewing and forbids republishing. Bureau County's GIS office quoted its board-district shapefile at $150 — beneath a licence that forbids redistributing anything derived from it. The block is legal, not technical, and no amount of engineering touches it. Their board members are on the map now, read from the counties' own websites. Their districts are not.</p>
           <span class="meter" role="img" aria-label="Machine-readable: 0 of 6"><i></i><i></i><i></i><i></i><i></i><i></i></span>
         </div>
 
         <div class="rung">
           <div>
             <p class="rung-format">Refused at the door</p>
-            <p class="rung-where">Adams · Perry</p>
+            <p class="rung-where">Adams</p>
           </div>
           <p class="rung-detail muted78">Adams publishes its seven board districts as clean map data — and its website answers every automated visit with a 391-byte Access Denied. The map is open; the page naming who won those districts is not.</p>
           <span class="meter" role="img" aria-label="Machine-readable: 0 of 6"><i></i><i></i><i></i><i></i><i></i><i></i></span>
@@ -337,7 +323,7 @@
     <p class="muted78">The shapefile arrived the day somebody asked for it. Of course it did. A county that runs elections necessarily <em>has</em> precinct geometry — it cannot hand out the right ballots otherwise. Putting that file on a website is a separate act, and one it may simply never have had a reason to perform.</p>
     <p class="muted78">The same logic runs through everything the map draws. A county that levies a fire protection tax knows exactly where that district ends. A county that seats a board by district knows which townships compose each one. The boundary always exists somewhere. What varies — county to county, office to office — is whether anyone ever decided it should be public.</p>
     <p class="muted78">And sometimes it is already public, in a form nobody filed under &ldquo;map.&rdquo; A board district built from whole voting precincts is described completely by the county&rsquo;s own election returns: the list of precincts a district&rsquo;s contest appeared on <em>is</em> the district. Four counties went on this map in a single day that way — from certified results their clerks already publish as ordinary data, with nobody answering an email. The same records were just as useful when the answer was no. Nine more counties turned out to split precincts between districts, or to have redrawn their precincts since the last census, and every one of those is now a measured fact instead of an open question.</p>
-    <p class="muted78">Sometimes the honest answer really is no, and that gets recorded too. Edwards County's boundaries are on paper because that is where its Clerk says they are. That is a closed route, not an unmeasured one, and the difference matters: this project keeps a record for every absence, naming the specific artifact a publisher would have to release to close it. Currently there are 110 of them.</p>
+    <p class="muted78">Sometimes the honest answer really is no, and that gets recorded too. Edwards County's boundaries are on paper because that is where its Clerk says they are. That is a closed route, not an unmeasured one, and the difference matters: this project keeps a record for every absence, naming the specific artifact a publisher would have to release to close it. Currently there are <span data-stat="gap_records">101</span> of them.</p>
   </section>
 
   <hr class="rule2" />
@@ -345,11 +331,20 @@
   <section class="tally" aria-label="Where it stands">
     <span class="kicker">Where it stands</span>
     <div class="grid">
-      <div><p class="tally-num" data-stat="illinois.counties_served">91</p><p class="tally-label">of 102 Illinois counties served</p></div>
+      <div><p class="tally-num" data-stat="illinois.counties_served">97</p><p class="tally-label">of 102 Illinois counties served</p></div>
       <div><p class="tally-num" data-stat="gap_records">101</p><p class="tally-label">recorded gaps, each naming what would close it</p></div>
       <div><p class="tally-num">0</p><p class="tally-label">counties left unresearched</p></div>
     </div>
-    <p class="breakdown muted78">Of those 106 gaps: <strong>79</strong> are things no one publishes in any form, <strong>20</strong> are published but wrong, stale, or incomplete, and <strong>7</strong> are blocked outright by a licence or a server that refuses to answer. Only the last seven are anybody's deliberate no.</p>
+    <p class="breakdown muted78">Of the 101 gaps recorded in October 2026: <strong>63</strong> are things no one publishes in any form, <strong>29</strong> are published but wrong, stale, or incomplete, and <strong>9</strong> are blocked outright by a licence or a server that refuses to answer. Only the last nine are anybody's deliberate no.</p>
+  </section>
+
+  <hr class="rule2" />
+
+  <section class="section">
+    <span class="kicker">It isn't only Illinois</span>
+    <h2>Every state I've added has the same gap.</h2>
+    <p class="intro muted78">districtry has since spread well past Illinois, and the pattern holds in every state. In 57 of Mississippi's 82 counties, I can name all five county supervisors but cannot show which one represents a given spot, because I have no confirmed map of the current district lines. In 56 of Louisiana's 64 parishes, the same is true of the police jury or parish council. Those counties and parishes must have the map to run their elections. It just isn't published anywhere I can get it.</p>
+    <p class="intro muted78">A county clerk can fix this for one county. A state can fix it for all of them. In October 2026 I asked the Illinois State Board of Elections to publish a single statewide precinct map. That one file would replace dozens of separate requests, and every other state could do the same.</p>
   </section>
 
   <hr class="rule2" />
@@ -358,7 +353,7 @@
     <span class="kicker">What it would take</span>
     <p>None of this is a scandal, and no clerk in this story did anything wrong. County election offices run on small staffs and thin budgets; nobody funded a GIS portal in a county of six thousand people, and nobody should have to. The people who answered these emails were, without exception, generous with their time.</p>
     <p>But the cost of not publishing doesn't land on the county. It lands on the resident who cannot easily find out who represents them — and it lands hardest in the smallest counties, the ones least able to build the tool that would tell them.</p>
-    <p>Which makes the fix unusually cheap. In most of these counties the file already exists, on a machine somebody signs into every day. Posting it changes nothing about the county's work and everything about what anyone can build on top of it. That is the whole ask: <strong>publish the file you already have.</strong></p>
+    <p>Which makes the fix unusually cheap. In most of these counties the file already exists, on a machine somebody signs into every day. Posting it changes nothing about the county's work and everything about what anyone can build on top of it. That is the whole ask: <strong>publish the file you already have.</strong> And for a state: <strong>gather the files your counties already have into one.</strong></p>
   </section>
 
 </div>
@@ -378,6 +373,7 @@
     <span>© 2026 Adam Overberg</span>
     <a href="mailto:hello@overberg.co">hello@overberg.co</a>
     <a href="/">Home</a>
+    <a href="https://districtry.com/ai.html">How I use AI</a>
     <a href="https://github.com/ThursdaysFamous">GitHub</a>
     <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
   </footer>
