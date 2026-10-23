@@ -1,7 +1,7 @@
 # overberg.co
 
 Personal landing page for **Adam Overberg** — civic tools and web apps built
-around Chicago and open government data.
+on open government data, starting in Chicago.
 
 Live at **[overberg.co](https://overberg.co/)**.
 
@@ -13,24 +13,25 @@ step and no framework, the same philosophy as the projects it links to. Served v
 GitHub Pages (`CNAME` → `overberg.co`, `.nojekyll`).
 
 - `index.html` — the landing page, a hub for what I'm currently building.
-- `why/index.html` → **[overberg.co/why](https://overberg.co/why/)** — why the
-  District Explorer exists: the nine incompatible formats Illinois counties hand
-  their boundary data over in, what the county-clerk correspondence returned, and
-  the case for publishing the file you already have.
+- `why/index.html` → **[overberg.co/why](https://overberg.co/why/)** — why
+  districtry exists: the formats Illinois counties hand their boundary data
+  over in, what the county-clerk correspondence returned, the same gap in
+  other states, and the case for publishing the file you already have.
 
 What it links out to:
 
-- **[districtry](https://districtry.com/il/)** (formerly the Chicago District
-  Explorer) — click any point (or search an address) and see every civic
-  district that contains it — ward, police district, community area,
-  congressional and state legislative districts, elected school board, CPS
-  zones, and more — plus who represents you there. Started in Chicago;
-  coverage now spans 89 counties across northern and central Illinois, from
-  the Wisconsin line to the Metro East. Embedded live on the page.
-- **[District Explorer: New York City](https://districtry.com/ny/)** — the
-  same lookup, ported to NYC.
-- **[District Explorer: San Francisco](https://districtry.com/ca/)** — ported
-  to SF.
+- **[districtry](https://districtry.com/)** (formerly the Chicago District
+  Explorer) — click any point (or search an address or ZIP code) and see every
+  civic district that contains it, plus who represents you there. It started
+  in Chicago and now answers in a growing list of states; its front page lists
+  every live place, so this site links there rather than keeping its own list.
+  The Illinois map is embedded live on the page.
+
+The numbers on both pages (places live, Illinois layers, Illinois counties
+served, recorded gaps) are read from
+[districtry.com/stats.json](https://districtry.com/stats.json) when the page
+loads; the values written in the HTML are only what a reader sees without
+JavaScript, so update them when you touch the page.
 
 ## Develop
 
