@@ -39,6 +39,7 @@
   .article ul, .article ol { margin: 0 0 24px; padding-left: 24px; }
   .article li { margin: 0 0 12px; }
   .article li:last-child { margin-bottom: 0; }
+  .article .break { width: 64px; height: 2px; border: 0; margin: 44px 0; background: var(--color-divider); }
   .article h2 {
     font-size: clamp(26px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.012em;
     margin: 56px 0 18px;
@@ -78,63 +79,21 @@
   <hr class="rule2" />
 
   <article class="article">
-    <p>When I wrote the <a href="/why/">first edition of this page</a>, districtry covered most of Illinois. Today it works in 17 states and San Francisco. Pick a spot on the map and it tells you which districts contain it and who represents you in each one.</p>
-    <p>None of these maps is finished. The site keeps a record of every missing piece: what is missing, why, and what it would take to fill it. Right now there are 236 of them. Reading them all, the problem seems rarely technical. The same few causes come up again and again, and one of them accounts for most of the blanks.</p>
-    <p>Of those 236, 146 are information I haven&rsquo;t found published anywhere. Another 68 are published, but out of date, incomplete or unreadable by a computer, and 22 are published but closed to me.</p>
-    <p>Everything below is what I&rsquo;ve been able to find, or been given. If I couldn&rsquo;t find something, that doesn&rsquo;t mean it isn&rsquo;t out there. If you know where it is, <a href="https://districtry.com/feedback.html">please tell me</a>.</p>
-
-    <h2>Six reasons a blank stays blank</h2>
-
-    <h3>1. Nobody keeps the list</h3>
-    <p>For whole layers of government, I haven&rsquo;t found any office that keeps track of who holds the seats.</p>
-    <ul>
-      <li><strong>City halls.</strong> In Arkansas, North Carolina, Oklahoma, South Carolina, Tennessee and Iowa, I haven&rsquo;t found a state office that publishes who runs each city and town. I read the largest cities&rsquo; own websites one at a time. For nearly 3,000 smaller cities and towns in those six states, the map names the place but not its mayor or council.</li>
-      <li><strong>School boards.</strong> In at least 10 of the 17 states, the map names your school district but nobody on its board, because I haven&rsquo;t found a statewide list of members I can read.</li>
-      <li><strong>Counties outside the big cities.</strong> In New York, I haven&rsquo;t found a state list of county board members, so in 48 of the 57 counties outside New York City the map names nobody.</li>
-      <li><strong>Fire districts.</strong> Each New York fire district elects five commissioners, and I haven&rsquo;t found anything the county or the state publishes that says who they are.</li>
-    </ul>
-    <p>A special district only counts as covered when its board members are named. That keeps much of the map blank, on purpose.</p>
-
-    <h3>2. It exists, but not as a map</h3>
-    <p>Some counties publish who sits on the board, but I haven&rsquo;t found where each member&rsquo;s district runs.</p>
-    <ul>
-      <li>In 57 of Mississippi&rsquo;s 82 counties, I can name all five supervisors but can&rsquo;t show which one represents a given spot.</li>
-      <li>In 56 of Louisiana&rsquo;s 64 parishes, I can name the police jury or parish council members and their district numbers, but have no map of where those districts run.</li>
-      <li>In 76 of Missouri&rsquo;s 114 counties, and the City of St. Louis, I can name the commission but not say which member represents a given spot.</li>
-      <li>In North Carolina, county commissioner districts are kept as written descriptions in the county clerk&rsquo;s office, not as maps.</li>
-    </ul>
-
-    <h3>3. It names who won, not who serves</h3>
-    <p>In Minnesota, South Carolina and 31 Michigan counties, I haven&rsquo;t found anyone who publishes who holds each county seat today. Election results say who won, but not who resigned or was appointed since.</p>
-
-    <h3>4. I&rsquo;ve been asked not to read it</h3>
-    <p>Some websites ask automated readers to stay out, and I respect that. Others put up a check that only a person in a browser can pass, and I don&rsquo;t get around it.</p>
-    <ul>
-      <li><strong>Courts.</strong> In Michigan, Minnesota, North Carolina, Oklahoma and Tennessee, the court system&rsquo;s list of judges is closed to automated readers.</li>
-      <li><strong>Local governments.</strong> Twelve Michigan counties&rsquo; websites turn away automated readers. Rochester Hills, Michigan publishes a complete council page, with a phone number and email for every member, and asks automated readers not to read it.</li>
-      <li><strong>Tribal nations.</strong> Several nations&rsquo; websites sit behind a browser check, so their councils aren&rsquo;t named.</li>
-    </ul>
-
-    <h3>5. It&rsquo;s for sale, or can&rsquo;t be reused</h3>
-    <p>I don&rsquo;t buy data. Champaign and Piatt counties in Illinois are still behind a GIS consortium&rsquo;s licence, and a Missouri county quoted about $300 per map layer. The League of Wisconsin Municipalities keeps the only statewide list of Wisconsin&rsquo;s city and village council members that I know of, and told me it can&rsquo;t be reused.</p>
-
-    <h3>6. Two official sources disagree</h3>
-    <p>In Kentwood and Ann Arbor, Michigan, the city&rsquo;s ward lines and another government&rsquo;s don&rsquo;t match. In the Bronx, two city and court sources name different county clerks. When that happens, I don&rsquo;t pick one.</p>
-
-    <h2>Why I don&rsquo;t fill the blanks</h2>
-    <p>I could make the map look complete quickly by drawing old district lines, listing last election&rsquo;s winners as if they still serve, or guessing. On the map, a guess looks exactly like a fact, and old lines could name the wrong person for a lot of people. So every blank says why it is blank.</p>
-
-    <h2>What I&rsquo;m doing about it</h2>
-    <p>Mostly, I ask. On 1 October I sent 36 letters in one afternoon, and eight were answered within the hour. In late October I wrote to 60 Missouri counties; the map now draws commission districts in 38 of them, several from maps clerks sent back. I&rsquo;ve also asked the Illinois State Board of Elections for one statewide precinct map, and written to state offices in Louisiana and Mississippi about their district lines. And I keep adding states.</p>
-
-    <h2>What would close the blanks</h2>
-    <p>I think most of these gaps would close if each state published three things, kept current, in one place:</p>
-    <ol>
-      <li><strong>Who holds each elected seat today</strong>, not only who won it.</li>
-      <li><strong>The lines each seat is elected from</strong>, as a map file a computer can read, not a PDF, a scan or a written description.</li>
-      <li><strong>Permission to reuse it</strong>, free, so anyone can build on it.</li>
-    </ol>
-    <p>Much of this probably already exists inside state government, since an election office has to know every contest and every precinct to print the right ballots. If so, publishing it may be more a choice than a technical problem.</p>
+    <p>When I wrote the <a href="/why/">first edition of this page</a>, districtry covered most of Illinois. It now works in 17 states and San Francisco. You pick a spot on the map, and it tells you which districts contain it and who represents you in each one.</p>
+    <p>None of those maps is finished. The site keeps a record of every piece it is missing: what is missing, why, and what it would take to fill it. As of today there are 236 of those records, and when I read through all of them, very few describe a technical problem. Of the 236, 146 are things I haven&rsquo;t found published anywhere. Another 68 are published but out of date, incomplete, or in a form a computer can&rsquo;t read, and 22 are published somewhere I can&rsquo;t get to.</p>
+    <p>I want to be careful about what that means. Everything here is what I&rsquo;ve been able to find, or what people have given me. If I couldn&rsquo;t find something, that doesn&rsquo;t mean it isn&rsquo;t out there, and if you know where it is, <a href="https://districtry.com/feedback.html">please tell me</a>. But after reading all 236, a few patterns are hard to miss.</p>
+    <hr class="break" />
+    <p>The most common reason a spot on the map is blank is that, as far as I can tell, nobody keeps the list. Take city halls. In Arkansas, North Carolina, Oklahoma, South Carolina, Tennessee and Iowa, I haven&rsquo;t found a state office that publishes who runs each city and town. I read the largest cities&rsquo; own websites one at a time, but that still leaves nearly 3,000 smaller cities and towns in those six states where the map can name the place and not its mayor or council. School boards are much the same: in at least 10 of the 17 states, the map names your school district but nobody on its board, because I haven&rsquo;t found a statewide list of members I can read. In New York I haven&rsquo;t found a state list of county board members, so in 48 of the 57 counties outside New York City the map names nobody. Each New York fire district elects five commissioners, and I haven&rsquo;t found anything the county or the state publishes that says who they are. I only count a special district as covered when its board members are named, and that keeps much of the map blank on purpose.</p>
+    <p>Sometimes the people are published but the lines aren&rsquo;t. In 57 of Mississippi&rsquo;s 82 counties, I can name all five supervisors but can&rsquo;t show which one represents a given spot. In 56 of Louisiana&rsquo;s 64 parishes, I can name the police jury or parish council members and their district numbers, but I have no map of where those districts run. In 76 of Missouri&rsquo;s 114 counties, and in the City of St. Louis, I can name the commission but can&rsquo;t say which member represents you. In North Carolina, county commissioner districts are kept as written descriptions in the county clerk&rsquo;s office rather than as maps.</p>
+    <p>Sometimes what&rsquo;s published is an election result. In Minnesota, South Carolina and 31 Michigan counties, I haven&rsquo;t found anyone who publishes who holds each county seat today. The results say who won. They don&rsquo;t say who has resigned or been appointed since.</p>
+    <p>Some of what I need is published, but I&rsquo;ve been asked not to read it. Some websites ask automated readers to stay out, and I respect that. Others put up a check that only a person in a browser can pass, and I don&rsquo;t try to get around it. The court systems in Michigan, Minnesota, North Carolina, Oklahoma and Tennessee keep their lists of judges closed to automated readers, and twelve Michigan counties&rsquo; websites turn them away. Rochester Hills, Michigan publishes a complete council page, with a phone number and email for every member, and asks automated readers not to read it. Several tribal nations&rsquo; websites sit behind a browser check, so their councils aren&rsquo;t named.</p>
+    <p>Some of it is for sale, and I don&rsquo;t buy data. Champaign and Piatt counties in Illinois are behind a GIS consortium&rsquo;s licence, and a Missouri county quoted about $300 per map layer. The League of Wisconsin Municipalities keeps the only statewide list of Wisconsin&rsquo;s city and village council members that I know of, and told me it can&rsquo;t be reused.</p>
+    <p>And sometimes two official sources disagree. In Kentwood and Ann Arbor, Michigan, the city&rsquo;s ward lines don&rsquo;t match another government&rsquo;s. In the Bronx, two city and court sources name different county clerks. When that happens, I don&rsquo;t pick one.</p>
+    <hr class="break" />
+    <p>I could make the map look complete quickly. I could draw old district lines, list last election&rsquo;s winners as if they still serve, or guess. But on the map a guess looks exactly like a fact, and old lines could name the wrong person for a lot of people. So I leave the blanks, and each one says why it&rsquo;s blank.</p>
+    <p>Mostly, what I do about it is ask. On 1 October I sent 36 letters in one afternoon, and eight were answered within the hour. In late October I wrote to 60 Missouri counties, and the map now draws commission districts in 38 of them, several from maps that clerks sent back. I&rsquo;ve asked the Illinois State Board of Elections for one statewide precinct map, and written to state offices in Louisiana and Mississippi about their district lines. And I keep adding states.</p>
+    <p>Asking one office at a time works, but slowly. I think most of these gaps would close if each state published three things, kept current, in one place: who holds each elected seat today, not only who won it; the lines each seat is elected from, as a map file a computer can read rather than a PDF, a scan or a written description; and permission to reuse both for free, so anyone can build on them.</p>
+    <p>Much of this probably already exists inside state government, since an election office has to know every contest and every precinct to print the right ballots. If that&rsquo;s true, publishing it may be more a choice than a technical problem.</p>
   </article>
 
 </div>
