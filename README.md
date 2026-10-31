@@ -17,6 +17,10 @@ GitHub Pages (`CNAME` → `overberg.co`, `.nojekyll`).
   districtry exists: the formats Illinois counties hand their boundary data
   over in, what the county-clerk correspondence returned, the same gap in
   other states, and the case for publishing the file you already have.
+- `why/still-incomplete/index.html` → **[overberg.co/why/still-incomplete](https://overberg.co/why/still-incomplete/)**
+  — the second edition (October 2026): why districtry is still incomplete, the
+  six reasons its recorded gaps keep coming up, and what a state could publish to
+  close most of them. Its numbers are a dated snapshot, typed by hand.
 
 What it links out to:
 
