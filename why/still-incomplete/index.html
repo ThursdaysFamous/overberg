@@ -31,46 +31,22 @@
 <script data-goatcounter="https://overbergco.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 <link rel="stylesheet" href="/style.css" />
 <style>
-  /* — page-specific: the essay column, the tally, the six reasons — */
-  .lede { padding: clamp(42px, 6vw, 64px) 0; }
-  .lede p { font-size: 17px; line-height: 30px; max-width: 62ch; margin: 0 0 21px; }
-  .lede p:last-child { margin-bottom: 0; }
-
-  .section { padding: clamp(48px, 7vw, 80px) 0; }
-  .section > h2 {
-    font-size: clamp(28px, 3vw, 40px); line-height: 1.1; letter-spacing: -0.015em;
-    margin: 0 0 21px; max-width: 20ch;
+  /* — page-specific: one reading column, like an article — */
+  .byline { font-size: 14px; line-height: 22px; margin: 28px 0 0; }
+  .article { padding: clamp(42px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); max-width: 680px; }
+  .article p, .article li { font-size: 18px; line-height: 31px; }
+  .article p { margin: 0 0 24px; }
+  .article ul, .article ol { margin: 0 0 24px; padding-left: 24px; }
+  .article li { margin: 0 0 12px; }
+  .article li:last-child { margin-bottom: 0; }
+  .article h2 {
+    font-size: clamp(26px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.012em;
+    margin: 56px 0 18px;
   }
-
-  /* — numbers — */
-  .tally { padding: clamp(42px, 6vw, 64px) 0; }
-  .tally .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: clamp(28px, 5vw, 42px) 28px; }
-  .tally-num {
-    font-family: var(--font-heading); font-weight: var(--font-heading-weight);
-    font-size: clamp(34px, 3.4vw, 48px); line-height: 1.15; color: var(--color-accent);
-    margin: 0 0 0 -0.045em;
-  }
-  .tally-label {
-    font-size: 13px; line-height: 1.4; letter-spacing: 0.08em; text-transform: uppercase;
-    color: color-mix(in srgb, var(--color-text) 70%, transparent); margin: 14px 0 0;
-  }
-
-  /* — the six reasons — */
-  .reasons { display: grid; gap: 36px; margin-top: clamp(36px, 5vw, 56px); }
-  .reason { border-top: 2px solid var(--color-divider); padding-top: 21px; }
-  .reason h3 { font-size: 20px; line-height: 26px; letter-spacing: -0.01em; margin: 0 0 12px; }
-  .reason h3 .n { color: var(--color-accent-700); margin-right: 10px; }
-  .reason p { font-size: 15.5px; line-height: 27px; margin: 0 0 14px; max-width: 60ch; }
-  .reason p:last-child { margin-bottom: 0; }
-  .reason ul { margin: 0 0 14px; padding-left: 20px; max-width: 60ch; }
-  .reason ul:last-child { margin-bottom: 0; }
-  .reason li { font-size: 15.5px; line-height: 27px; margin: 0 0 10px; }
-  .reason li:last-child { margin-bottom: 0; }
-  @media (min-width: 900px) { .reasons { grid-template-columns: repeat(2, 1fr); gap: 42px clamp(24px, 4vw, 56px); } }
-
-  /* — the ask — */
-  .ask { margin: 0 0 21px; padding-left: 24px; max-width: 60ch; }
-  .ask li { font-size: 17px; line-height: 30px; margin: 0 0 10px; }
+  .article h3 { font-size: 20px; line-height: 28px; letter-spacing: -0.005em; margin: 40px 0 10px; }
+  .article h2 + h3 { margin-top: 28px; }
+  .article > :first-child { margin-top: 0; }
+  .article > :last-child { margin-bottom: 0; }
 </style>
 </head>
 <body>
@@ -94,120 +70,72 @@
 <div class="wrap">
 
   <section class="hero">
-    <span class="kicker">Why this exists &middot; Second edition, October 2026</span>
+    <span class="kicker">Why this exists &middot; Second edition</span>
     <h1 class="display"><span class="line">Why it&rsquo;s still</span> <span class="line">incomplete.</span></h1>
-    <p class="sub">When I wrote the <a href="/why/">first edition of this page</a>, districtry covered most of Illinois. Today it works in 17 states and San Francisco. Pick a spot on the map and it tells you which districts contain it and who represents you in each one.</p>
+    <p class="byline muted78">Adam Overberg &middot; 31 October 2026 &middot; <a href="/why/">Read the first edition</a></p>
   </section>
 
   <hr class="rule2" />
 
-  <section class="lede">
+  <article class="article">
+    <p>When I wrote the <a href="/why/">first edition of this page</a>, districtry covered most of Illinois. Today it works in 17 states and San Francisco. Pick a spot on the map and it tells you which districts contain it and who represents you in each one.</p>
     <p>None of these maps is finished. The site keeps a record of every missing piece: what is missing, why, and what it would take to fill it. Right now there are 236 of them. Reading them all, the problem seems rarely technical. The same few causes come up again and again, and one of them accounts for most of the blanks.</p>
+    <p>Of those 236, 146 are information I haven&rsquo;t found published anywhere. Another 68 are published, but out of date, incomplete or unreadable by a computer, and 22 are published but closed to me.</p>
     <p>Everything below is what I&rsquo;ve been able to find, or been given. If I couldn&rsquo;t find something, that doesn&rsquo;t mean it isn&rsquo;t out there. If you know where it is, <a href="https://districtry.com/feedback.html">please tell me</a>.</p>
-  </section>
 
-  <hr class="rule2" />
+    <h2>Six reasons a blank stays blank</h2>
 
-  <section class="tally" aria-label="The gaps the map records">
-    <span class="kicker">The gaps, as of 31 October 2026</span>
-    <div class="grid">
-      <div><p class="tally-num">236</p><p class="tally-label">recorded gaps across 18 maps</p></div>
-      <div><p class="tally-num">146</p><p class="tally-label">information I haven&rsquo;t found published anywhere</p></div>
-      <div><p class="tally-num">68</p><p class="tally-label">published, but out of date, incomplete or unreadable by a computer</p></div>
-      <div><p class="tally-num">22</p><p class="tally-label">published, but closed to me</p></div>
-    </div>
-  </section>
+    <h3>1. Nobody keeps the list</h3>
+    <p>For whole layers of government, I haven&rsquo;t found any office that keeps track of who holds the seats.</p>
+    <ul>
+      <li><strong>City halls.</strong> In Arkansas, North Carolina, Oklahoma, South Carolina, Tennessee and Iowa, I haven&rsquo;t found a state office that publishes who runs each city and town. I read the largest cities&rsquo; own websites one at a time. For nearly 3,000 smaller cities and towns in those six states, the map names the place but not its mayor or council.</li>
+      <li><strong>School boards.</strong> In at least 10 of the 17 states, the map names your school district but nobody on its board, because I haven&rsquo;t found a statewide list of members I can read.</li>
+      <li><strong>Counties outside the big cities.</strong> In New York, I haven&rsquo;t found a state list of county board members, so in 48 of the 57 counties outside New York City the map names nobody.</li>
+      <li><strong>Fire districts.</strong> Each New York fire district elects five commissioners, and I haven&rsquo;t found anything the county or the state publishes that says who they are.</li>
+    </ul>
+    <p>A special district only counts as covered when its board members are named. That keeps much of the map blank, on purpose.</p>
 
-  <hr class="rule2" />
+    <h3>2. It exists, but not as a map</h3>
+    <p>Some counties publish who sits on the board, but I haven&rsquo;t found where each member&rsquo;s district runs.</p>
+    <ul>
+      <li>In 57 of Mississippi&rsquo;s 82 counties, I can name all five supervisors but can&rsquo;t show which one represents a given spot.</li>
+      <li>In 56 of Louisiana&rsquo;s 64 parishes, I can name the police jury or parish council members and their district numbers, but have no map of where those districts run.</li>
+      <li>In 76 of Missouri&rsquo;s 114 counties, and the City of St. Louis, I can name the commission but not say which member represents a given spot.</li>
+      <li>In North Carolina, county commissioner districts are kept as written descriptions in the county clerk&rsquo;s office, not as maps.</li>
+    </ul>
 
-  <section class="section">
-    <span class="kicker">What the gaps have in common</span>
-    <h2>Six reasons a blank stays blank.</h2>
+    <h3>3. It names who won, not who serves</h3>
+    <p>In Minnesota, South Carolina and 31 Michigan counties, I haven&rsquo;t found anyone who publishes who holds each county seat today. Election results say who won, but not who resigned or was appointed since.</p>
 
-    <div class="reasons">
+    <h3>4. I&rsquo;ve been asked not to read it</h3>
+    <p>Some websites ask automated readers to stay out, and I respect that. Others put up a check that only a person in a browser can pass, and I don&rsquo;t get around it.</p>
+    <ul>
+      <li><strong>Courts.</strong> In Michigan, Minnesota, North Carolina, Oklahoma and Tennessee, the court system&rsquo;s list of judges is closed to automated readers.</li>
+      <li><strong>Local governments.</strong> Twelve Michigan counties&rsquo; websites turn away automated readers. Rochester Hills, Michigan publishes a complete council page, with a phone number and email for every member, and asks automated readers not to read it.</li>
+      <li><strong>Tribal nations.</strong> Several nations&rsquo; websites sit behind a browser check, so their councils aren&rsquo;t named.</li>
+    </ul>
 
-      <div class="reason">
-        <h3><span class="n">1</span>Nobody keeps the list</h3>
-        <p>For whole layers of government, I haven&rsquo;t found any office that keeps track of who holds the seats.</p>
-        <ul>
-          <li><strong>City halls.</strong> In Arkansas, North Carolina, Oklahoma, South Carolina, Tennessee and Iowa, I haven&rsquo;t found a state office that publishes who runs each city and town. I read the largest cities&rsquo; own websites one at a time. For nearly 3,000 smaller cities and towns in those six states, the map names the place but not its mayor or council.</li>
-          <li><strong>School boards.</strong> In at least 10 of the 17 states, the map names your school district but nobody on its board, because I haven&rsquo;t found a statewide list of members I can read.</li>
-          <li><strong>Counties outside the big cities.</strong> In New York, I haven&rsquo;t found a state list of county board members, so in 48 of the 57 counties outside New York City the map names nobody.</li>
-          <li><strong>Fire districts.</strong> Each New York fire district elects five commissioners, and I haven&rsquo;t found anything the county or the state publishes that says who they are.</li>
-        </ul>
-        <p>A special district only counts as covered when its board members are named. That keeps much of the map blank, on purpose.</p>
-      </div>
+    <h3>5. It&rsquo;s for sale, or can&rsquo;t be reused</h3>
+    <p>I don&rsquo;t buy data. Champaign and Piatt counties in Illinois are still behind a GIS consortium&rsquo;s licence, and a Missouri county quoted about $300 per map layer. The League of Wisconsin Municipalities keeps the only statewide list of Wisconsin&rsquo;s city and village council members that I know of, and told me it can&rsquo;t be reused.</p>
 
-      <div class="reason">
-        <h3><span class="n">2</span>It exists, but not as a map</h3>
-        <p>Some counties publish who sits on the board, but I haven&rsquo;t found where each member&rsquo;s district runs.</p>
-        <ul>
-          <li>In <strong>57 of Mississippi&rsquo;s 82 counties</strong>, I can name all five supervisors but can&rsquo;t show which one represents a given spot.</li>
-          <li>In <strong>56 of Louisiana&rsquo;s 64 parishes</strong>, I can name the police jury or parish council members and their district numbers, but have no map of where those districts run.</li>
-          <li>In <strong>76 of Missouri&rsquo;s 114 counties</strong>, and the City of St. Louis, I can name the commission but not say which member represents a given spot.</li>
-          <li>In <strong>North Carolina</strong>, county commissioner districts are kept as written descriptions in the county clerk&rsquo;s office, not as maps.</li>
-        </ul>
-      </div>
+    <h3>6. Two official sources disagree</h3>
+    <p>In Kentwood and Ann Arbor, Michigan, the city&rsquo;s ward lines and another government&rsquo;s don&rsquo;t match. In the Bronx, two city and court sources name different county clerks. When that happens, I don&rsquo;t pick one.</p>
 
-      <div class="reason">
-        <h3><span class="n">3</span>It names who won, not who serves</h3>
-        <p>In Minnesota, South Carolina and 31 Michigan counties, I haven&rsquo;t found anyone who publishes who holds each county seat today. Election results say who won, but not who resigned or was appointed since.</p>
-      </div>
-
-      <div class="reason">
-        <h3><span class="n">4</span>I&rsquo;ve been asked not to read it</h3>
-        <p>Some websites ask automated readers to stay out, and I respect that. Others put up a check that only a person in a browser can pass, and I don&rsquo;t get around it.</p>
-        <ul>
-          <li><strong>Courts.</strong> In Michigan, Minnesota, North Carolina, Oklahoma and Tennessee, the court system&rsquo;s list of judges is closed to automated readers.</li>
-          <li><strong>Local governments.</strong> Twelve Michigan counties&rsquo; websites turn away automated readers. Rochester Hills, Michigan publishes a complete council page, with a phone number and email for every member, and asks automated readers not to read it.</li>
-          <li><strong>Tribal nations.</strong> Several nations&rsquo; websites sit behind a browser check, so their councils aren&rsquo;t named.</li>
-        </ul>
-      </div>
-
-      <div class="reason">
-        <h3><span class="n">5</span>It&rsquo;s for sale, or can&rsquo;t be reused</h3>
-        <p>I don&rsquo;t buy data.</p>
-        <ul>
-          <li>Champaign and Piatt counties in Illinois are still behind a GIS consortium&rsquo;s licence.</li>
-          <li>A Missouri county quoted about $300 per map layer.</li>
-          <li>The League of Wisconsin Municipalities keeps the only statewide list of Wisconsin&rsquo;s city and village council members that I know of, and told me it can&rsquo;t be reused.</li>
-        </ul>
-      </div>
-
-      <div class="reason">
-        <h3><span class="n">6</span>Two official sources disagree</h3>
-        <p>In Kentwood and Ann Arbor, Michigan, the city&rsquo;s ward lines and another government&rsquo;s don&rsquo;t match. In the Bronx, two city and court sources name different county clerks. When that happens, I don&rsquo;t pick one.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <hr class="rule2" />
-
-  <section class="lede">
-    <span class="kicker">Why I don&rsquo;t fill the blanks</span>
+    <h2>Why I don&rsquo;t fill the blanks</h2>
     <p>I could make the map look complete quickly by drawing old district lines, listing last election&rsquo;s winners as if they still serve, or guessing. On the map, a guess looks exactly like a fact, and old lines could name the wrong person for a lot of people. So every blank says why it is blank.</p>
-  </section>
 
-  <hr class="rule2" />
-
-  <section class="lede">
-    <span class="kicker">What I&rsquo;m doing about it</span>
+    <h2>What I&rsquo;m doing about it</h2>
     <p>Mostly, I ask. On 1 October I sent 36 letters in one afternoon, and eight were answered within the hour. In late October I wrote to 60 Missouri counties; the map now draws commission districts in 38 of them, several from maps clerks sent back. I&rsquo;ve also asked the Illinois State Board of Elections for one statewide precinct map, and written to state offices in Louisiana and Mississippi about their district lines. And I keep adding states.</p>
-  </section>
 
-  <hr class="rule2" />
-
-  <section class="lede">
-    <span class="kicker">What would close the blanks</span>
+    <h2>What would close the blanks</h2>
     <p>I think most of these gaps would close if each state published three things, kept current, in one place:</p>
-    <ol class="ask">
+    <ol>
       <li><strong>Who holds each elected seat today</strong>, not only who won it.</li>
       <li><strong>The lines each seat is elected from</strong>, as a map file a computer can read, not a PDF, a scan or a written description.</li>
       <li><strong>Permission to reuse it</strong>, free, so anyone can build on it.</li>
     </ol>
     <p>Much of this probably already exists inside state government, since an election office has to know every contest and every precinct to print the right ballots. If so, publishing it may be more a choice than a technical problem.</p>
-  </section>
+  </article>
 
 </div>
 
