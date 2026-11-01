@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The map is still incomplete, but the data is likely out there — Adam Overberg</title>
+<meta name="description" content="The second edition of why districtry exists: the 236 gaps the map records today, the six reasons they keep coming up, and what a state could publish to close most of them." />
+<link rel="canonical" href="https://overberg.co/why/still-incomplete/" />
+<meta name="robots" content="index, follow" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The map is still incomplete, but the data is likely out there" />
+<meta property="og:description" content="236 recorded gaps across 17 states and San Francisco, and the six reasons they keep coming up." />
+<meta property="og:url" content="https://overberg.co/why/still-incomplete/" />
+<meta property="og:image" content="https://overberg.co/images/social-why-incomplete.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Why it's still incomplete. Second edition — overberg.co/why" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpolygon points='32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8' fill='%23ec3013'/%3E%3C/svg%3E" />
+<script>
+  // Set theme before first paint: stored choice wins, else follow the OS.
+  (function () {
+    try {
+      var s = localStorage.getItem('overberg-theme');
+      var dark = s ? s === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+    } catch (e) { document.documentElement.dataset.theme = 'light'; }
+  })();
+</script>
+<!-- GoatCounter — cookieless page counts -->
+<script data-goatcounter="https://overbergco.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+<link rel="stylesheet" href="/style.css" />
+<style>
+  /* — page-specific: one reading column, like an article — */
+  .byline { font-size: 14px; line-height: 22px; margin: 28px 0 0; }
+  .article { padding: clamp(42px, 6vw, 72px) 0 clamp(56px, 8vw, 96px); max-width: 680px; }
+  .article p, .article li { font-size: 18px; line-height: 31px; }
+  .article p { margin: 0 0 24px; }
+  .article ul, .article ol { margin: 0 0 24px; padding-left: 24px; }
+  .article li { margin: 0 0 12px; }
+  .article li:last-child { margin-bottom: 0; }
+  .article .break { width: 64px; height: 2px; border: 0; margin: 44px 0; background: var(--color-divider); }
+  .article h2 {
+    font-size: clamp(26px, 2.6vw, 32px); line-height: 1.15; letter-spacing: -0.012em;
+    margin: 56px 0 18px;
+  }
+  .article h3 { font-size: 20px; line-height: 28px; letter-spacing: -0.005em; margin: 40px 0 10px; }
+  .article h2 + h3 { margin-top: 28px; }
+  .article > :first-child { margin-top: 0; }
+  .article > :last-child { margin-bottom: 0; }
+</style>
+</head>
+<body>
+<nav class="nav">
+  <span class="nav-brand">
+    <a href="/">
+      <svg viewBox="0 0 64 64" aria-hidden="true" style="width:20px;height:20px;flex:none"><polygon points="32,2 37.2,26.8 61.3,18.9 42.4,32 61.3,45.1 37.2,37.2 32,62 26.8,37.2 2.7,45.1 21.6,32 2.7,18.9 26.8,26.8" fill="var(--color-accent)"/></svg>
+      Adam Overberg
+    </a>
+  </span>
+  <a href="/#work">Work</a>
+  <a href="/why/" aria-current="page">Why</a>
+  <a href="/#about">About</a>
+  <button type="button" id="theme-toggle" class="btn btn-ghost btn-icon" aria-label="Switch light / dark theme" title="Switch light / dark">
+    <svg class="moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+    <svg class="sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+  </button>
+  <a class="btn btn-primary" href="https://districtry.com/">Open districtry</a>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero">
+    <span class="kicker">Why this exists &middot; Second edition</span>
+    <h1 class="display"><span class="line">The map is still</span> <span class="line">incomplete, but the data</span> <span class="line">is likely out there.</span></h1>
+    <p class="byline muted78">Adam Overberg &middot; 31 October 2026 &middot; <a href="/why/">Read the first edition</a></p>
+  </section>
+
+  <hr class="rule2" />
+
+  <article class="article">
+    <h2>How it started, and how far it has come</h2>
+    <p>When I wrote the <a href="/why/">first edition of this page</a>, districtry covered most of Illinois. Today it works in seventeen states and San Francisco. You pick a spot on the map, and it tells you which districts contain it and who represents you in each one.</p>
+    <p>More people are finding it. In October, districtry&rsquo;s pages were opened about sixty-four hundred times, more than five times as often as in September, and people picked more than sixteen hundred spots on the map to see who represents them. The site&rsquo;s own pages now name more than sixteen thousand county and local officeholders, and the maps name many more.</p>
+    <h2>Where it is going</h2>
+    <p>What started as a question about one county is now a national one, and the information it needs comes from thousands of counties, cities and state offices. None of the maps is finished yet. The site keeps a written record of each thing it can&rsquo;t answer: what is missing, why, and what it would take to fill it. Each record covers one kind of missing information in one place, from a single county up to a whole state, and as of today there are two hundred thirty-six of them. Of those, one hundred forty-six are things I haven&rsquo;t found published anywhere. Another sixty-eight are published but out of date, incomplete, or in a form a computer can&rsquo;t read, and twenty-two are published somewhere I can&rsquo;t get to.</p>
+    <p>I want to be careful about what that means. Everything here is what I&rsquo;ve been able to find, or what people have given me. If I couldn&rsquo;t find something, that doesn&rsquo;t mean it isn&rsquo;t out there, and if you know where it is, <a href="https://districtry.com/feedback.html">please tell me</a>.</p>
+    <h2>What is in the way</h2>
+    <p>In reading through those two hundred thirty-six records, it has been hard to miss a few patterns behind the missing information. The first is by far the most common.</p>
+    <h3>Nobody keeps the list</h3>
+    <p>For whole layers of government, I haven&rsquo;t found any office that keeps track of who holds the seats. In Arkansas, North Carolina, Oklahoma, South Carolina, Tennessee and Iowa, I haven&rsquo;t found a state office that publishes who runs each city and town. I read the largest cities&rsquo; own websites one at a time, but that leaves nearly three thousand smaller cities and towns in those six states where the map can name the place and not its mayor or council. In at least ten of the seventeen states, the map names your school district but nobody on its board. In New York, it names nobody on the county board in forty-eight of the fifty-seven counties outside New York City, and I haven&rsquo;t found a list of who sits on its fire district boards.</p>
+    <p>Even where the law asks for a list, it doesn&rsquo;t always get made. Indiana requires each conservancy district to tell the state who its directors are, and this year six of them sent no list.</p>
+    <h3>The people are listed, but the lines aren&rsquo;t</h3>
+    <p>Sometimes I can find who sits on a board but not where each member&rsquo;s district runs. In fifty-seven of Mississippi&rsquo;s eighty-two counties, I can name all five supervisors but can&rsquo;t show which one represents a given spot. The same is true of fifty-six of Louisiana&rsquo;s sixty-four parishes and seventy-six of Missouri&rsquo;s one hundred fourteen counties. In North Carolina, county commissioner districts are kept as written descriptions in the county clerk&rsquo;s office rather than as maps.</p>
+    <h3>The information is out of date, or doesn&rsquo;t agree</h3>
+    <p>In Minnesota, South Carolina and thirty-one Michigan counties, I haven&rsquo;t found anyone who publishes who holds each county seat today. Election results say who won, but not who has resigned or been appointed since. And sometimes two official sources disagree. In Kentwood and Ann Arbor, Michigan, the city&rsquo;s ward lines don&rsquo;t match another government&rsquo;s, and in the Bronx two city and court sources name different county clerks. When that happens, I don&rsquo;t pick one.</p>
+    <h3>The information is closed off</h3>
+    <p>Some of what I need is published, but I&rsquo;ve been asked not to read it. The court systems in Michigan, Minnesota, North Carolina, Oklahoma and Tennessee keep their lists of judges closed to automated readers, and Rochester Hills, Michigan publishes a complete council page and asks automated readers not to read it. I respect those requests, and I don&rsquo;t try to get around the checks some sites put up. Some of it is for sale, and I don&rsquo;t buy data: two Illinois counties&rsquo; maps are behind a licence, and a Missouri county quoted about three hundred dollars per map layer.</p>
+    <h2>What I&rsquo;m doing about it</h2>
+    <p>Mostly, I ask. On 1 October I sent thirty-six letters in one afternoon, and eight were answered within the hour. In late October I wrote to sixty Missouri counties, and the map now draws commission districts in thirty-eight of them, several from maps that clerks sent back. I&rsquo;ve asked the Illinois State Board of Elections for one statewide precinct map, and written to state offices in Louisiana and Mississippi about their district lines. And I keep adding states.</p>
+    <p>Asking one office at a time works, but slowly.</p>
+    <h2>What it could look like</h2>
+    <p>I could make the map look complete quickly by drawing old district lines, listing last election&rsquo;s winners as if they still serve, or guessing. But on the map a guess looks exactly like a fact, and old lines could name the wrong person for a lot of people. So I leave the blanks, and each one says why it&rsquo;s blank.</p>
+    <p>I think most of these gaps would close if each state published three things, kept current, in one place: who holds each elected seat today, not only who won it; the lines each seat is elected from, as a map file a computer can read rather than a PDF, a scan or a written description; and permission to reuse both for free, so anyone can build on them. Much of this probably already exists inside state government, since an election office has to know every contest and every precinct to print the right ballots. If states published it, I wouldn&rsquo;t need to write to offices one at a time, and the map could answer everywhere it works.</p>
+    <h2>How you can help</h2>
+    <p>If you work in government and know where any of this information is kept, please <a href="https://districtry.com/feedback.html">tell me</a>, and pass this page to colleagues who might know too.</p>
+    <p>If you don&rsquo;t, you can ask your own representatives to publish it, and share this page with them. If districtry already covers where you live, it will tell you who they are and how to reach them. If it doesn&rsquo;t, you&rsquo;ve seen the problem for yourself.</p>
+    <h2>Where this ends up</h2>
+    <p>districtry started as a way to answer one question in one state. It now works in seventeen states and more people are finding it, which suggests the need is real and larger than I first thought. A complete map would let anyone find out who represents them in a few seconds, and it would give the people who hold those seats a simple way to be found.</p>
+  </article>
+
+</div>
+
+<section class="close">
+  <div class="wrap">
+    <h3><span class="line">From what I&rsquo;ve seen,</span> <span class="line">most blanks look like a list</span> <span class="line">nobody was asked to keep.</span></h3>
+    <div class="row" style="margin-top:42px">
+      <a class="btn btn-ghost" href="https://districtry.com/">See what&rsquo;s on the map &rarr;</a>
+      <a class="btn btn-ghost" href="/why/">Read the first edition &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<div class="wrap">
+  <footer>
+    <span>© 2026 Adam Overberg</span>
+    <a href="mailto:hello@overberg.co">hello@overberg.co</a>
+    <a href="/">Home</a>
+    <a href="https://districtry.com/ai.html">How I use AI</a>
+    <a href="https://github.com/ThursdaysFamous">GitHub</a>
+    <a href="https://www.linkedin.com/in/adammoverberg/">LinkedIn</a>
+  </footer>
+</div>
+
+<script>
+  document.getElementById('theme-toggle').addEventListener('click', function () {
+    var next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+    document.documentElement.dataset.theme = next;
+    try { localStorage.setItem('overberg-theme', next); } catch (e) {}
+  });
+</script>
+</body>
+</html>
