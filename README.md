@@ -30,6 +30,9 @@ What it links out to:
   in Chicago and now answers in a growing list of states; its front page lists
   every live place, so this site links there rather than keeping its own list.
   The Illinois map is embedded live on the page.
+- **[districtry on Google Play](https://play.google.com/store/apps/details?id=com.districtry.app)**
+  — the Android app, public since November 2026. The home page and the Why
+  page's closing buttons link it. There is no iPhone app.
 
 The numbers on both pages (places live, Illinois layers, Illinois counties
 served, recorded gaps) are read from
